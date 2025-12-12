@@ -11,14 +11,10 @@
             "id": "8fa970ccef01feb7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SCUT-study/12-14 2.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "12-14 2"
+              "title": "新标签页"
             }
           }
         ]
@@ -185,6 +181,7 @@
   },
   "active": "8fa970ccef01feb7",
   "lastOpenFiles": [
+    "SCUT-study/12-14 2.md",
     "SCUT-study/assets/Pasted image 20251213052047.png",
     "SCUT-study/12-14 1.md",
     "SCUT-study/12-14 3.md",
@@ -210,13 +207,11 @@
     "大学物理/attachments/Pasted image 20251130192907.png",
     "大学物理/attachments/Pasted image 20251130174448.png",
     "大学物理/attachments/Pasted image 20251130180907.png",
-    "大学物理/attachments/Pasted image 20251130163650.png",
     "大学物理/最主要的公式.canvas",
     "大学物理/attachments",
     "大学物理",
     "SCUT-study/assets",
     "SCUT-study/12-14.md",
-    "SCUT-study/12-14 2.md",
     "SCUT-study/index.mdx",
     "模板/模板.md",
     "未命名.md",
