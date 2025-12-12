@@ -102,18 +102,18 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
           <div
             class="absolute size-full bg-[url('/static/bento/blog-foreground-square.png')] bg-cover bg-center bg-no-repeat transition-opacity duration-200 sm:bg-[url('/static/bento/blog-foreground.png')] sm:opacity-0 sm:group-hover/blog:opacity-100"
           >
-            <p
-              class="text-foreground/80 bg-background absolute bottom-4 left-16 border p-2 text-xs text-pretty sm:top-[42.5%] sm:right-4 sm:bottom-[inherit] sm:left-[inherit] sm:-translate-y-1/2"
-            >
-              Read my latest<br /> blog post!
-            </p>
           </div>
+          <p
+            class="text-foreground/80 bg-background absolute bottom-4 left-16 border p-2 text-xs text-pretty sm:top-[42.5%] sm:right-4 sm:bottom-[inherit] sm:left-[inherit] sm:-translate-y-1/2"
+          >
+            Read my latest<br /> blog post!
+          </p>
           <div class="p-3 sm:size-full sm:p-6">
             {
-              latestPost && (
-                <Link href={`/blog/${latestPost.id}`} class="flex h-full">
+              latestPost?.data.imageWithText?.src && (
+                <Link href="/blog" class="flex h-full">
                   <img
-                    src={latestPost.data.imageWithText?.src ?? '#'}
+                    src={latestPost.data.imageWithText.src}
                     alt={`Featured image for the latest post: ${latestPost.data.title}`}
                     class="h-full border"
                   />
@@ -124,7 +124,7 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
           {
             latestPost && (
               <Link
-                href={`/blog/${latestPost.id}`}
+                href="/blog"
                 title={`Read latest blog post: ${latestPost.data.title}`}
                 aria-label={`Read latest blog post: ${latestPost.data.title}`}
                 class="bg-border/50 text-primary ring-ring group/blog-link absolute end-0 bottom-0 m-3 rounded-full p-3 transition-[box-shadow] duration-300 hover:ring-2 focus-visible:ring-2"
@@ -232,28 +232,14 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
             <p
               class="text-foreground/80 bg-background absolute bottom-4 left-4 hidden border p-2 text-xs text-pretty sm:block"
             >
-              TypeScript is<br />much better!
+              delay no more<br />so high
             </p>
           </div>
           <Icon
-            name="mdi:twitter"
+            name="fa-brands:weixin"
             class="text-primary absolute size-1/2 sm:size-24"
             aria-hidden="true"
           />
-          <Link
-            href={SOCIAL_LINKS.find((link) => link.label === 'Twitter')?.href ||
-              '#'}
-            title="Visit my Twitter profile"
-            aria-label="Visit my Twitter profile"
-            external
-            class="bg-border/50 text-primary ring-ring group/twitter-link absolute end-0 bottom-0 m-3 rounded-full p-3 transition-[box-shadow] duration-300 hover:ring-2 focus-visible:ring-2"
-          >
-            <Icon
-              name="lucide:move-up-right"
-              class="transition-transform duration-300 group-hover/twitter-link:rotate-12"
-              size={16}
-            />
-          </Link>
         </div>
       </div>
     </div>

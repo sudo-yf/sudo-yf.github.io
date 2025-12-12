@@ -52,6 +52,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@iconify-json/fa-brands": "^1.2.2",
     "prettier": "^3.5.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-astro-organize-imports": "^0.4.11",
