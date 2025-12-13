@@ -6,7 +6,7 @@ import path from 'node:path'
 
 /**
  * Remark plugin to transform Obsidian-style image embeds (![[image.png]])
- * into standard Markdown image syntax with absolute paths.
+ * into standard Markdown image syntax using relative paths.
  */
 const remarkObsidianImages: Plugin<[], Root> = () => {
     return (tree, file) => {
@@ -14,9 +14,6 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
         if (!filePath) return
 
         const fileDir = path.dirname(filePath)
-        // Get the blog directory path (relative to project root)
-        const blogRoot = path.join(process.cwd(), 'blog')
-        const relativeToBlog = path.relative(blogRoot, fileDir)
 
         visit(tree, 'text', (node, index, parent) => {
             if (!parent || index === undefined) return
@@ -45,22 +42,16 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
                     const sameDir = path.join(fileDir, imageName)
                     const assetsDir = path.join(fileDir, 'assets', imageName)
 
-                    // Generate absolute URL from /blog/ root
+                    // Use relative paths for Astro to process
                     let finalUrl: string
 
                     if (fs.existsSync(sameDir)) {
-                        // Image in same directory as markdown
-                        finalUrl = `/blog/${relativeToBlog}/${imageName}`.replace(/\\/g, '/')
+                        finalUrl = `./${imageName}`
                     } else if (fs.existsSync(assetsDir)) {
-                        // Image in assets subdirectory
-                        finalUrl = `/blog/${relativeToBlog}/assets/${imageName}`.replace(/\\/g, '/')
+                        finalUrl = `./assets/${imageName}`
                     } else {
-                        // Fallback
-                        finalUrl = `/blog/assets/${imageName}`.replace(/\\/g, '/')
+                        finalUrl = `./assets/${imageName}`
                     }
-
-                    // Clean up double slashes
-                    finalUrl = finalUrl.replace(/\/+/g, '/')
 
                     parts.push({
                         type: 'image',
