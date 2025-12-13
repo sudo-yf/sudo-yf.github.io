@@ -10,7 +10,6 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
-import remarkEmoji from 'remark-emoji'
 import remarkMath from 'remark-math'
 import rehypeDocument from 'rehype-document'
 import remarkObsidianImages from './src/lib/remark-obsidian-images'
@@ -58,6 +57,6 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [remarkObsidianImages, remarkMath, remarkEmoji],
+    remarkPlugins: [remarkObsidianImages, remarkMath],
   },
 })
