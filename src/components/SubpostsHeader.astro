@@ -6,6 +6,7 @@ import {
   getParentPost,
   getPostById,
   getPostReadingTime,
+  getPostSlug,
   getSubpostsForParent,
   isSubpost,
 } from '@/lib/data-utils'
@@ -117,7 +118,7 @@ const currentSubpostDetails = isCurrentSubpost
                     </div>
                   ) : (
                     <a
-                      href={`/blog/${activePost.id}`}
+                      href={`/blog/${getPostSlug(activePost.id)}`}
                       class="mobile-subposts-link hover:text-foreground text-muted-foreground hover:bg-muted/50 flex items-center gap-2 px-2 py-1.5 text-sm transition-colors"
                     >
                       <Icon
@@ -167,7 +168,7 @@ const currentSubpostDetails = isCurrentSubpost
                       </div>
                     ) : (
                       <a
-                        href={`/blog/${subpost.id}`}
+                        href={`/blog/${getPostSlug(subpost.id)}`}
                         class="mobile-subposts-link hover:text-foreground text-muted-foreground hover:bg-muted/50 flex items-center gap-2 px-2 py-1.5 text-sm transition-colors"
                       >
                         <Icon

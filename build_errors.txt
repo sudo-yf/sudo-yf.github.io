@@ -1,0 +1,137 @@
+19:54:48 [content] Syncing content
+19:54:48 [WARN] [glob-loader] No files found matching "**/*.{md,mdx}" in directory "src/content/projects"
+19:54:48 [content] Synced content
+19:54:48 [types] Generated 116ms
+19:54:48 [check] Getting diagnostics for Astro files in /Users/a123/Desktop/Blog/yfblog...
+[96msrc/components/BlogCard.astro[0m:[93m24[0m:[93m23[0m - [93mwarning[0m[90m ts(6133): [0m'className' is declared but its value is never read.
+
+[7m24[0m const { entry, class: className } = Astro.props
+[7m  [0m [93m                      ~~~~~~~~~[0m
+[96msrc/components/BlogCard.astro[0m:[93m12[0m:[93m26[0m - [93mwarning[0m[90m ts(6133): [0m'readingTime' is declared but its value is never read.
+
+[7m12[0m import { cn, formatDate, readingTime } from '@/lib/utils'
+[7m  [0m [93m                         ~~~~~~~~~~~[0m
+[96msrc/components/BlogCard.astro[0m:[93m12[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'cn' is declared but its value is never read.
+
+[7m12[0m import { cn, formatDate, readingTime } from '@/lib/utils'
+[7m  [0m [93m         ~~[0m
+
+[96msrc/components/SubpostsHeader.astro[0m:[93m14[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getSubpostsForParent'.
+
+[7m14[0m   getSubpostsForParent,
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m12[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostReadingTime'.
+
+[7m12[0m   getPostReadingTime,
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m11[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostById'.
+
+[7m11[0m   getPostById,
+[7m  [0m [91m  ~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m10[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getParentPost'.
+
+[7m10[0m   getParentPost,
+[7m  [0m [91m  ~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m9[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getSubpostsForParent'.
+
+[7m9[0m   getSubpostsForParent,
+[7m [0m [91m  ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m8[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostReadingTime'.
+
+[7m8[0m   getPostReadingTime,
+[7m [0m [91m  ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m7[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostById'.
+
+[7m7[0m   getPostById,
+[7m [0m [91m  ~~~~~~~~~~~[0m
+[96msrc/components/SubpostsHeader.astro[0m:[93m6[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getParentPost'.
+
+[7m6[0m   getParentPost,
+[7m [0m [91m  ~~~~~~~~~~~~~[0m
+
+[96msrc/components/SubpostsSidebar.astro[0m:[93m17[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getSubpostsForParent'.
+
+[7m17[0m   getSubpostsForParent,
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m15[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostReadingTime'.
+
+[7m15[0m   getPostReadingTime,
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m14[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostById'.
+
+[7m14[0m   getPostById,
+[7m  [0m [91m  ~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m13[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getParentPost'.
+
+[7m13[0m   getParentPost,
+[7m  [0m [91m  ~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m12[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getParentId'.
+
+[7m12[0m   getParentId,
+[7m  [0m [91m  ~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m11[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getCombinedReadingTime'.
+
+[7m11[0m   getCombinedReadingTime,
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m10[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getSubpostsForParent'.
+
+[7m10[0m   getSubpostsForParent,
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m9[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostReadingTime'.
+
+[7m9[0m   getPostReadingTime,
+[7m [0m [91m  ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m8[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getPostById'.
+
+[7m8[0m   getPostById,
+[7m [0m [91m  ~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m7[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getParentPost'.
+
+[7m7[0m   getParentPost,
+[7m [0m [91m  ~~~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m6[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getParentId'.
+
+[7m6[0m   getParentId,
+[7m [0m [91m  ~~~~~~~~~~~[0m
+[96msrc/components/SubpostsSidebar.astro[0m:[93m5[0m:[93m3[0m - [91merror[0m[90m ts(2300): [0mDuplicate identifier 'getCombinedReadingTime'.
+
+[7m5[0m   getCombinedReadingTime,
+[7m [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/bento/MusicCard.tsx[0m:[93m3[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'FaApple' is declared but its value is never read.
+
+[7m3[0m import { FaApple } from 'react-icons/fa'
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/bento/RichGithubCard.tsx[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'cn' is declared but its value is never read.
+
+[7m4[0m import { cn } from '@/lib/utils'
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/bento/SpotifyPresence.tsx[0m:[93m28[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'error' is declared but its value is never read.
+
+[7m28[0m   const [error, setError] = useState<string | null>(null)
+[7m  [0m [93m         ~~~~~[0m
+
+[96msrc/components/bento/WakatimeGraph.tsx[0m:[93m134[0m:[93m17[0m - [93mwarning[0m[90m ts(6133): [0m'setError' is declared but its value is never read.
+
+[7m134[0m   const [error, setError] = useState<string | null>(null)
+[7m   [0m [93m                ~~~~~~~~[0m
+[96msrc/components/bento/WakatimeGraph.tsx[0m:[93m131[0m:[93m26[0m - [93mwarning[0m[90m ts(6133): [0m'omitLanguages' is declared but its value is never read.
+
+[7m131[0m const useWakatimeData = (omitLanguages: string[]) => {
+[7m   [0m [93m                         ~~~~~~~~~~~~~[0m
+[96msrc/components/bento/WakatimeGraph.tsx[0m:[93m40[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'formatDuration' is declared but its value is never read.
+
+[7m40[0m const formatDuration = (hours: number): string => {
+[7m  [0m [93m      ~~~~~~~~~~~~~~[0m
+[96msrc/components/bento/WakatimeGraph.tsx[0m:[93m34[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'WAKATIME_API_URL' is declared but its value is never read.
+
+[7m34[0m const WAKATIME_API_URL =
+[7m  [0m [93m      ~~~~~~~~~~~~~~~~[0m
+
+Result (64 files): 
+- 20 errors
+- 0 warnings
+- 10 hints
+

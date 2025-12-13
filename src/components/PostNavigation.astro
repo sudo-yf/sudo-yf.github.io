@@ -1,6 +1,7 @@
 ---
 import Link from '@/components/Link.astro'
 import { buttonVariants } from '@/components/ui/button'
+import { getPostSlug } from '@/lib/data-utils'
 import { cn } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
 
@@ -15,7 +16,7 @@ const isSubpost = !!parentPost
   )}
 >
   <Link
-    href={olderPost ? `/blog/${olderPost.id}#post-title` : '#'}
+    href={olderPost ? `/blog/${getPostSlug(olderPost.id)}#post-title` : '#'}
     class={cn(
       buttonVariants({ variant: 'outline' }),
       'group flex items-center justify-start size-full',
@@ -43,7 +44,7 @@ const isSubpost = !!parentPost
   {
     isSubpost && (
       <Link
-        href={parentPost ? `/blog/${parentPost.id}#post-title` : '#'}
+        href={parentPost ? `/blog/${getPostSlug(parentPost.id)}#post-title` : '#'}
         class={cn(
           buttonVariants({ variant: 'outline' }),
           'group flex size-full items-center justify-center',
@@ -67,7 +68,7 @@ const isSubpost = !!parentPost
   }
 
   <Link
-    href={newerPost ? `/blog/${newerPost.id}#post-title` : '#'}
+    href={newerPost ? `/blog/${getPostSlug(newerPost.id)}#post-title` : '#'}
     class={cn(
       buttonVariants({ variant: 'outline' }),
       'group flex items-center justify-end size-full',

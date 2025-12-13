@@ -17,6 +17,7 @@ import {
   getParentId,
   getParentPost,
   getPostReadingTime,
+  getPostSlug,
   getSubpostCount,
   getTOCSections,
   hasSubposts,
@@ -31,13 +32,13 @@ import { render } from 'astro:content'
 export async function getStaticPaths() {
   const posts = await getAllPostsAndSubposts()
   return posts.map((post) => ({
-    params: { id: post.id },
+    params: { id: getPostSlug(post.id) },
     props: post,
   }))
 }
 
 const post = Astro.props
-const currentPostId = Astro.params.id
+const currentPostId = post.id
 const { Content, headings } = await render(post)
 const authors = await parseAuthors(post.data.authors ?? [])
 
@@ -87,19 +88,19 @@ const tocSections = await getTOCSections(currentPostId)
           ...(isCurrentSubpost && parentPost
             ? [
                 {
-                  href: `/blog/${parentPost.id}`,
+                  href: `/blog/${getPostSlug(parentPost.id)}`,
                   label: parentPost.data.title,
                   icon: 'lucide:book-open',
                 },
                 {
-                  href: `/blog/${currentPostId}`,
+                  href: `/blog/${getPostSlug(currentPostId)}`,
                   label: post.data.title,
                   icon: 'lucide:file-text',
                 },
               ]
             : [
                 {
-                  href: `/blog/${currentPostId}`,
+                  href: `/blog/${getPostSlug(currentPostId)}`,
                   label: post.data.title,
                   icon: 'lucide:book-open-text',
                 },
@@ -115,19 +116,19 @@ const tocSections = await getTOCSections(currentPostId)
           ...(isCurrentSubpost && parentPost
             ? [
                 {
-                  href: `/blog/${parentPost.id}`,
+                  href: `/blog/${getPostSlug(parentPost.id)}`,
                   label: 'Post',
                   icon: 'lucide:book-open',
                 },
                 {
-                  href: `/blog/${currentPostId}`,
+                  href: `/blog/${getPostSlug(currentPostId)}`,
                   label: 'Subpost',
                   icon: 'lucide:file-text',
                 },
               ]
             : [
                 {
-                  href: `/blog/${currentPostId}`,
+                  href: `/blog/${getPostSlug(currentPostId)}`,
                   label: 'Post',
                   icon: 'lucide:book-open-text',
                 },

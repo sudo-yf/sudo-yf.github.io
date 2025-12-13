@@ -1,6 +1,18 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content'
 import { readingTime, calculateWordCountFromHtml } from '@/lib/utils'
 
+export function getPostSlug(postId: string): string {
+  let slug = postId
+  if (slug.endsWith('/index.mdx')) {
+    slug = slug.replace(/\/index\.mdx$/, '')
+  } else if (slug.endsWith('/index.md')) {
+    slug = slug.replace(/\/index\.md$/, '')
+  } else {
+    slug = slug.replace(/\.(md|mdx)$/, '')
+  }
+  return slug
+}
+
 export async function getAllAuthors(): Promise<CollectionEntry<'authors'>[]> {
   return await getCollection('authors')
 }

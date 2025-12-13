@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Life/2025-12-14.md",
+                "file": "Study/12-14.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-12-14"
+              "title": "12-14"
             }
           }
         ]
@@ -183,15 +183,22 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "8fa970ccef01feb7",
+  "active": "fcdc54fae2533457",
   "lastOpenFiles": [
+    "Study/test-obsidian-resolution.md",
+    "Study/test-image.svg",
+    "Study/assets/Pasted image 20251213200906.png",
     "Study/index.mdx",
-    "Study/scut-study/parent-index.mdx",
+    "Study/test-long-content.md",
+    "Study/12-14.md",
+    "Life/test-long-content.md",
     "Life/index.mdx",
-    "Recommendations/index.mdx",
-    "Learning/index.mdx",
-    "Life/2025-12-13.md",
     "Life/2025-12-14.md",
+    "Life/2025-12-13.md",
+    "Learning/test-long-content.md",
+    "Learning/index.mdx",
+    "Study/scut-study/parent-index.mdx",
+    "Recommendations/index.mdx",
     "Life/welcome/index.mdx",
     "Study/scut-study/index.mdx",
     "Study/scut-study/12-14.md",
@@ -219,11 +226,8 @@
     "工程力学/attachments",
     "工程力学",
     "大学物理/大学物理考频.md",
-    "大学物理/attachments/Pasted image 20251130192907.png",
-    "大学物理/attachments/Pasted image 20251130174448.png",
     "大学物理/最主要的公式.canvas",
     "大学物理/attachments",
-    "大学物理",
     "SCUT-study/12-14.md",
     "模板/模板.md",
     "未命名.md",

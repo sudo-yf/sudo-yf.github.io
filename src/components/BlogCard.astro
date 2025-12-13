@@ -4,9 +4,12 @@ import AvatarComponent from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import {
   getCombinedReadingTime,
+  getPostSlug,
+  getSubpostCount,
+  isSubpost,
   parseAuthors,
 } from '@/lib/data-utils'
-import { cn, formatDate, readingTime } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 import { withBase } from '@/lib/path-utils'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
@@ -18,12 +21,12 @@ interface Props {
   class?: string
 }
 
-const { entry, class: className } = Astro.props
+const { entry } = Astro.props
 const formattedDate = formatDate(entry.data.date)
 const readTime = await getCombinedReadingTime(entry.id)
 const authors = await parseAuthors(entry.data.authors ?? [])
-const subpostCount = entry.data.subposts?.length ?? 0
-const href = withBase(`/blog/${entry.id}`)
+const subpostCount = !isSubpost(entry.id) ? await getSubpostCount(entry.id) : 0
+const href = withBase(`/blog/${getPostSlug(entry.id)}`)
 ---
 
 <div

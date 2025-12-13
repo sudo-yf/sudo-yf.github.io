@@ -1,19 +1,32 @@
 import { visit } from 'unist-util-visit'
 import type { Plugin } from 'unified'
 import type { Root } from 'mdast'
+import fs from 'node:fs'
+import path from 'node:path'
 
 /**
  * Remark plugin to transform Obsidian-style image embeds (![[image.png]])
- * into standard Markdown image syntax (![](./assets/image.png))
+ * into standard Markdown image syntax.
+ * It checks for the image in:
+ * 1. The same directory as the markdown file
+ * 2. An 'assets' subdirectory
+ * 3. Default to ./assets/ if not found (or for safety)
  */
 const remarkObsidianImages: Plugin<[], Root> = () => {
-    return (tree) => {
+    return (tree, file) => {
+        const filePath = file.history[0] || file.path
+        if (!filePath) return
+
+        const fileDir = path.dirname(filePath)
+
         visit(tree, 'text', (node, index, parent) => {
             if (!parent || index === undefined) return
 
             const text = node.value
             // Match Obsidian image syntax: ![[image.png]]
-            const obsidianImageRegex = /!\[\[([^\]]+\.(?:png|jpg|jpeg|gif|webp|svg))\]\]/gi
+            // Also supports ![[image.png|alt text]] but we just capture filename for now
+            // Simplified regex to capture filename
+            const obsidianImageRegex = /!\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g
 
             if (obsidianImageRegex.test(text)) {
                 const parts: any[] = []
@@ -33,10 +46,23 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
                     }
 
                     // Add the image node
-                    const imageName = match[1]
+                    const imageName = match[1].trim()
+
+                    // Check existence
+                    const sameDir = path.join(fileDir, imageName)
+                    const assetsDir = path.join(fileDir, 'assets', imageName)
+
+                    let finalUrl = `./assets/${imageName}` // Default fallback
+
+                    if (fs.existsSync(sameDir)) {
+                        finalUrl = `./${imageName}`
+                    } else if (fs.existsSync(assetsDir)) {
+                        finalUrl = `./assets/${imageName}`
+                    }
+
                     parts.push({
                         type: 'image',
-                        url: `./assets/${imageName}`,
+                        url: finalUrl,
                         alt: imageName.replace(/\.[^.]+$/, ''), // Remove extension for alt text
                     })
 
