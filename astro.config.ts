@@ -19,7 +19,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://sudo-yf.github.io',
-  base: '/yfblog',
   integrations: [expressiveCode(), mdx(), react(), sitemap(), icon()],
   build: {
     assets: 'assets',
