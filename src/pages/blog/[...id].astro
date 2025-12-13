@@ -83,23 +83,23 @@ const tocSections = await getTOCSections(currentPostId)
     <div class="col-start-2 hidden sm:block">
       <Breadcrumbs
         items={[
-          { href: '/yfblog/blog', label: 'Blog', icon: 'lucide:library-big' },
+          { href: '/blog', label: 'Blog', icon: 'lucide:library-big' },
           ...(isCurrentSubpost && parentPost
             ? [
                 {
-                  href: `/yfblog/blog/${parentPost.id}`,
+                  href: `/blog/${parentPost.id}`,
                   label: parentPost.data.title,
                   icon: 'lucide:book-open',
                 },
                 {
-                  href: `/yfblog/blog/${currentPostId}`,
+                  href: `/blog/${currentPostId}`,
                   label: post.data.title,
                   icon: 'lucide:file-text',
                 },
               ]
             : [
                 {
-                  href: `/yfblog/blog/${currentPostId}`,
+                  href: `/blog/${currentPostId}`,
                   label: post.data.title,
                   icon: 'lucide:book-open-text',
                 },
@@ -111,23 +111,23 @@ const tocSections = await getTOCSections(currentPostId)
     <div class="col-start-2 sm:hidden">
       <Breadcrumbs
         items={[
-          { href: '/yfblog/blog', label: 'Blog', icon: 'lucide:library-big' },
+          { href: '/blog', label: 'Blog', icon: 'lucide:library-big' },
           ...(isCurrentSubpost && parentPost
             ? [
                 {
-                  href: `/yfblog/blog/${parentPost.id}`,
+                  href: `/blog/${parentPost.id}`,
                   label: 'Post',
                   icon: 'lucide:book-open',
                 },
                 {
-                  href: `/yfblog/blog/${currentPostId}`,
+                  href: `/blog/${currentPostId}`,
                   label: 'Subpost',
                   icon: 'lucide:file-text',
                 },
               ]
             : [
                 {
-                  href: `/yfblog/blog/${currentPostId}`,
+                  href: `/blog/${currentPostId}`,
                   label: 'Post',
                   icon: 'lucide:book-open-text',
                 },
@@ -238,13 +238,11 @@ const tocSections = await getTOCSections(currentPostId)
         </div>
       </div>
 
-      <div class="hidden sm:block">
-        <PostNavigation
-          newerPost={navigation.newer}
-          olderPost={navigation.older}
-          parentPost={isCurrentSubpost ? navigation.parent : undefined}
-        />
-      </div>
+      <PostNavigation
+        newerPost={navigation.newer}
+        olderPost={navigation.older}
+        parentPost={isCurrentSubpost ? navigation.parent : undefined}
+      />
     </section>
 
     {
