@@ -4,33 +4,34 @@ import AvatarComponent from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import {
   getCombinedReadingTime,
-  getSubpostCount,
-  isSubpost,
   parseAuthors,
 } from '@/lib/data-utils'
-import { formatDate } from '@/lib/utils'
+import { cn, formatDate, readingTime } from '@/lib/utils'
+import { withBase } from '@/lib/path-utils'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
-import Link from './Link.astro'
+import Link from '@/components/Link.astro'
 
 interface Props {
   entry: CollectionEntry<'blog'>
+  class?: string
 }
 
-const { entry } = Astro.props
+const { entry, class: className } = Astro.props
 const formattedDate = formatDate(entry.data.date)
 const readTime = await getCombinedReadingTime(entry.id)
 const authors = await parseAuthors(entry.data.authors ?? [])
-const subpostCount = !isSubpost(entry.id) ? await getSubpostCount(entry.id) : 0
+const subpostCount = entry.data.subposts?.length ?? 0
+const href = withBase(`/blog/${entry.id}`)
 ---
 
 <div
   class="hover:bg-muted/50 border p-4 transition-colors duration-300 ease-in-out"
 >
   <Link
-    href={`/blog/${entry.id}`}
-    class="group flex flex-col gap-4 sm:flex-row"
+    href={`/${entry.collection}/${entry.id}`}
+    class="flex flex-col gap-4 sm:flex-row"
   >
     {
       (entry.data.imageWithoutText || entry.data.imageWithText) && (
