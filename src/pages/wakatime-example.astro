@@ -1,0 +1,77 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import WakatimeGraph from '@/components/bento/WakatimeGraph'
+
+const WAKATIME_SHARE_URL = import.meta.env.PUBLIC_WAKATIME_SHARE_URL || ''
+---
+
+<Layout>
+  <div class="mx-auto max-w-4xl py-12">
+    <h1 class="text-3xl font-bold mb-8">WakaTime Integration Example</h1>
+    
+    {WAKATIME_SHARE_URL ? (
+      <div class="grid gap-4">
+        <div class="bg-muted relative aspect-[3/2] overflow-hidden rounded-lg border">
+          <WakatimeGraph client:load shareUrl={WAKATIME_SHARE_URL} />
+        </div>
+        
+        <div class="prose dark:prose-invert max-w-none">
+          <h2>Setup Instructions</h2>
+          <ol>
+            <li>
+              Install WakaTime extension for your editor:
+              <ul>
+                <li><a href="https://wakatime.com/vs-code" target="_blank">VS Code</a></li>
+                <li><a href="https://wakatime.com/jetbrains" target="_blank">IntelliJ/WebStorm</a></li>
+                <li><a href="https://wakatime.com/vim" target="_blank">Vim/Neovim</a></li>
+                <li><a href="https://wakatime.com/" target="_blank">More editors...</a></li>
+              </ul>
+            </li>
+            <li>
+              Get your API key from{' '}
+              <a href="https://wakatime.com/settings/api-key" target="_blank" rel="noopener">
+                WakaTime Settings
+              </a>
+            </li>
+            <li>
+              Add to <code>.env</code>:
+              <pre>PUBLIC_WAKATIME_API_KEY=waka_your_api_key_here</pre>
+            </li>
+            <li>Start coding! Stats will appear within 24 hours</li>
+          </ol>
+          
+          <h3>Features</h3>
+          <ul>
+            <li>Shows top 7 programming languages from last 7 days</li>
+            <li>Real-time data from WakaTime API</li>
+            <li>Beautiful language icons</li>
+            <li>Auto-refreshes every 10 minutes</li>
+            <li>Time displayed in hours/minutes</li>
+          </ul>
+
+          <h3>Privacy Note</h3>
+          <p>
+            WakaTime tracks your coding time locally in your editor. The API key is used
+            to fetch your aggregated stats. No code content is shared.
+          </p>
+        </div>
+      </div>
+    ) : (
+      <div class="bg-muted rounded-lg border p-8 text-center">
+        <p class="text-muted-foreground mb-4">
+          WakaTime share URL not configured
+        </p>
+        <p class="text-sm">
+          Please add <code>PUBLIC_WAKATIME_SHARE_URL</code> to your <code>.env</code> file
+        </p>
+        <a 
+          href="https://wakatime.com/share" 
+          target="_blank"
+          class="text-primary mt-4 inline-block underline"
+        >
+          Get your WakaTime share URL →
+        </a>
+      </div>
+    )}
+  </div>
+</Layout>

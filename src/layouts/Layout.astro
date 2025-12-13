@@ -19,9 +19,9 @@ const { class: className } = Astro.props
 <html
   class="bg-background text-foreground scheme-dark"
   lang={SITE.locale}
-  data-theme="dark"
 >
   <Head>
+    <script is:inline src="/toggle-theme.js"></script>
     <slot name="head" />
   </Head>
   <body>

@@ -18,6 +18,7 @@ interface Language {
 }
 
 interface Props {
+  shareUrl?: string
   omitLanguages?: string[]
 }
 
@@ -31,29 +32,13 @@ const CHART_COLORS = [
   'hsl(var(--chart-7))',
 ] as const
 
-const WAKATIME_API_URL =
-  'https://wakatime.com/share/@jktrn/ef6e633b-589d-44f2-9ae6-0eb93445cf2a.json'
 const MAX_LANGUAGES = 7
 const ICON_SIZE = 20
 const CIRCLE_RADIUS = 16
 
-const formatDuration = (hours: number): string => {
-  if (hours >= 10) {
-    return `${Math.round(hours)}h`
-  } else {
-    const totalMinutes = Math.round(hours * 60)
-    const h = Math.floor(totalMinutes / 60)
-    const m = totalMinutes % 60
-    if (h > 0) {
-      return `${h}h ${m}m`
-    }
-    return `${m}m`
-  }
-}
-
 const chartConfig: ChartConfig = {
   hours: {
-    label: 'Time',
+    label: 'Hours',
     color: 'var(--primary)',
   },
   label: {
@@ -62,7 +47,7 @@ const chartConfig: ChartConfig = {
   ...CHART_COLORS.reduce(
     (acc, color, index) => ({
       ...acc,
-      [`language${index}`]: { label: `App ${index + 1}`, color },
+      [`language${index}`]: { label: `Language ${index + 1}`, color },
     }),
     {},
   ),
@@ -128,47 +113,86 @@ const LoadingSkeleton = () => (
   </div>
 )
 
-const useWakatimeData = (omitLanguages: string[]) => {
+const useWakatimeData = (shareUrl: string | undefined, omitLanguages: string[]) => {
   const [languages, setLanguages] = useState<Language[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Screen time data based on user's phone usage
-    const hardcodedData = [
-      { name: 'WeChat', hours: 25.75 },      // 25小时 44分钟 40秒
-      { name: 'PiliPala', hours: 6.78 },     // 6小时 46分钟 12秒
-      { name: 'Google', hours: 2.64 },       // 2小时 38分钟 21秒
-      { name: '狐猴浏览器', hours: 1.78 },    // 1小时 46分钟 46秒
-      { name: 'QQ', hours: 1.19 },           // 1小时 11分钟 32秒
-      { name: '小红书', hours: 1.06 },        // 1小时 3分钟 24秒
-      { name: 'Music', hours: 0.79 },        // 47分钟 9秒
-    ]
+    const fetchData = async () => {
+      if (!shareUrl) {
+        setError('No share URL provided')
+        setIsLoading(false)
+        return
+      }
 
-    const combinedLanguages = hardcodedData
-      .map((lang, index) => ({
-        name: lang.name,
-        hours: lang.hours,
-        fill: CHART_COLORS[index % CHART_COLORS.length],
-      }))
+      try {
+        const response = await fetch(shareUrl)
+        if (!response.ok) {
+          throw new Error(`Failed to fetch data: ${response.statusText}`)
+        }
 
-    setLanguages(combinedLanguages)
-    setIsLoading(false)
-  }, [])
+        const data = await response.json()
+
+        const languageMap = new Map<string, number>()
+
+        data.data.forEach((lang: { name: string; hours: number }) => {
+          if (omitLanguages.includes(lang.name)) return
+
+          let normalizedName = lang.name
+
+          if (lang.name === 'JavaScript' || lang.name === 'TypeScript') {
+            normalizedName = 'TypeScript'
+          }
+
+          if (lang.name === 'Markdown' || lang.name === 'MDX') {
+            normalizedName = 'MDX'
+          }
+
+          if (lang.name === 'Image (svg)' || lang.name === 'SVG') {
+            normalizedName = 'Figma'
+          }
+
+          const currentHours = languageMap.get(normalizedName) || 0
+          languageMap.set(normalizedName, currentHours + lang.hours)
+        })
+
+        const combinedLanguages = Array.from(languageMap.entries())
+          .map(([name, hours]) => ({ name, hours }))
+          .sort((a, b) => b.hours - a.hours)
+          .slice(0, MAX_LANGUAGES)
+          .map((lang, index) => ({
+            name: lang.name,
+            hours: Number(lang.hours.toFixed(2)),
+            fill: CHART_COLORS[index % CHART_COLORS.length],
+          }))
+
+        setLanguages(combinedLanguages)
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : 'An unexpected error occurred',
+        )
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [shareUrl, omitLanguages])
 
   return { languages, isLoading, error }
 }
 
-const WakatimeGraph = ({ omitLanguages = [] }: Props) => {
-  const { languages, isLoading, error } = useWakatimeData(omitLanguages)
+const WakatimeGraph = ({ shareUrl, omitLanguages = [] }: Props) => {
+  const { languages, isLoading, error } = useWakatimeData(shareUrl, omitLanguages)
 
   if (isLoading) return <LoadingSkeleton />
   if (error) {
     return (
       <div className="flex h-full items-center justify-center rounded-3xl p-4">
         <div className="text-center">
-          <p className="text-destructive">Error loading data</p>
-          <p className="text-muted-foreground text-sm">Please email me!</p>
+          <p className="text-destructive">Error loading WakaTime data</p>
+          <p className="text-muted-foreground text-sm">{error}</p>
         </div>
       </div>
     )
@@ -198,22 +222,12 @@ const WakatimeGraph = ({ omitLanguages = [] }: Props) => {
           tick={<CustomYAxisTick />}
         />
         <XAxis type="number" hide />
-        <ChartTooltip
-          cursor={false}
-          content={<ChartTooltipContent />}
-        />
+        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <Bar dataKey="hours" radius={[0, 0, 0, 0]} isAnimationActive={false}>
           <LabelList
             dataKey="hours"
             position="right"
-            formatter={(value: number) => {
-              if (value >= 10) {
-                return `${Math.round(value)}h`
-              } else {
-                const minutes = Math.round(value * 60)
-                return `${minutes}m`
-              }
-            }}
+            formatter={(value: number) => `${Math.round(value)}h`}
             className="fill-foreground/80 font-medium"
             fontSize={13}
           />

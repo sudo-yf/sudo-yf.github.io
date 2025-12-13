@@ -1,5 +1,7 @@
 ---
 import Link from '@/components/Link.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import ColorSchemePicker from '@/components/ColorSchemePicker.astro'
 import { NAV_LINKS } from '@/consts'
 import { cn } from '@/lib/utils'
 import { withBase } from '@/lib/path-utils'
@@ -29,6 +31,8 @@ import logo from '../../public/static/logo.svg'
             </Link>
           ))
         }
+        <ColorSchemePicker />
+        <ThemeToggle />
       </nav>
     </div>
   </div>

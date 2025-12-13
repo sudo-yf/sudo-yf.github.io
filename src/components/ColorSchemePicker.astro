@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const colorSchemes = [
+  { name: 'orange', label: 'Orange', color: 'oklch(0.8775 0.08 75)' },
+  { name: 'blue', label: 'Blue', color: 'oklch(0.55 0.08 250)' },
+  { name: 'teal', label: 'Teal', color: 'oklch(0.60 0.08 180)' },
+  { name: 'green', label: 'Green', color: 'oklch(0.65 0.08 140)' },
+  { name: 'pink', label: 'Pink', color: 'oklch(0.70 0.10 330)' },
+  { name: 'purple', label: 'Purple', color: 'oklch(0.60 0.10 290)' },
+  { name: 'red', label: 'Red', color: 'oklch(0.60 0.12 25)' },
+];
+---
+
+<div class="relative inline-block">
+  <button
+    id="color-scheme-trigger"
+    type="button"
+    class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
+    aria-label="Select color scheme"
+  >
+    <Icon name="lucide:palette" class="h-4 w-4" />
+    <span class="sr-only">Select color scheme</span>
+  </button>
+
+  <div
+    id="color-scheme-menu"
+    class="hidden absolute right-0 mt-2 w-40 rounded-md border border-border bg-background shadow-lg z-50"
+    role="menu"
+  >
+    <div class="p-2 space-y-1">
+      {colorSchemes.map(scheme => (
+        <button
+          data-color-scheme-btn={scheme.name}
+          class="w-full flex items-center gap-2 px-3 py-2 text-sm rounded hover:bg-accent transition-colors"
+          role="menuitem"
+        >
+          <span 
+            class="w-4 h-4 rounded-full border border-border"
+            style={`background: ${scheme.color}`}
+          ></span>
+          <span>{scheme.label}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Toggle menu visibility
+  document.getElementById('color-scheme-trigger')?.addEventListener('click', () => {
+    const menu = document.getElementById('color-scheme-menu');
+    menu?.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const trigger = document.getElementById('color-scheme-trigger');
+    const menu = document.getElementById('color-scheme-menu');
+    if (!trigger?.contains(e.target) && !menu?.contains(e.target)) {
+      menu?.classList.add('hidden');
+    }
+  });
+</script>

@@ -1,0 +1,61 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import LastfmCard from '@/components/bento/LastfmCard'
+
+const LASTFM_API_KEY = import.meta.env.PUBLIC_LASTFM_API_KEY || ''
+const LASTFM_USERNAME = import.meta.env.PUBLIC_LASTFM_USERNAME || ''
+---
+
+<Layout>
+  <div class="mx-auto max-w-4xl py-12">
+    <h1 class="text-3xl font-bold mb-8">Last.fm Integration Example</h1>
+    
+    {LASTFM_API_KEY && LASTFM_USERNAME ? (
+      <div class="grid gap-4">
+        <div class="bg-muted relative aspect-[3/2] overflow-hidden rounded-lg border">
+          <LastfmCard client:load username={LASTFM_USERNAME} apiKey={LASTFM_API_KEY} />
+        </div>
+        
+        <div class="prose dark:prose-invert">
+          <h2>Setup Instructions</h2>
+          <ol>
+            <li>
+              Create a Last.fm API account at{' '}
+              <a href="https://www.last.fm/api/account/create" target="_blank" rel="noopener">
+                Last.fm API
+              </a>
+            </li>
+            <li>Copy your API key</li>
+            <li>
+              Add to <code>.env</code>:
+              <pre>
+PUBLIC_LASTFM_API_KEY=your_api_key
+PUBLIC_LASTFM_USERNAME=your_username
+              </pre>
+            </li>
+            <li>The card will update automatically every 30 seconds</li>
+          </ol>
+          
+          <h3>Features</h3>
+          <ul>
+            <li>Shows currently playing track with live indicator</li>
+            <li>Falls back to last played track</li>
+            <li>Displays album art</li>
+            <li>Auto-refreshes every 30 seconds</li>
+            <li>Links to Last.fm track page</li>
+          </ul>
+        </div>
+      </div>
+    ) : (
+      <div class="bg-muted rounded-lg border p-8 text-center">
+        <p class="text-muted-foreground mb-4">
+          Last.fm credentials not configured
+        </p>
+        <p class="text-sm">
+          Please add <code>PUBLIC_LASTFM_API_KEY</code> and{' '}
+          <code>PUBLIC_LASTFM_USERNAME</code> to your <code>.env</code> file
+        </p>
+      </div>
+    )}
+  </div>
+</Layout>

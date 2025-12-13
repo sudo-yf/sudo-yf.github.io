@@ -2,7 +2,7 @@
 import DiscordPresence from '@/components/bento/DiscordPresence.tsx'
 import GithubCalendar from '@/components/bento/GithubCalendar.tsx'
 import MusicCard from '@/components/bento/MusicCard.tsx'
-import WakatimeGraph from '@/components/bento/WakatimeGraph.tsx'
+import NpmDownloads from '@/components/bento/NpmDownloads.tsx'
 import Link from '@/components/Link.astro'
 import PageHead from '@/components/PageHead.astro'
 import { SOCIAL_LINKS } from '@/consts'
@@ -13,6 +13,8 @@ import { cn } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
 
 const latestPost = await getAllPosts().then((posts) => posts.at(0))
+// WakaTime share URL - get from: https://wakatime.com/share
+const WAKATIME_SHARE_URL = import.meta.env.PUBLIC_WAKATIME_SHARE_URL || ''
 ---
 
 <Layout class="px-2">
@@ -29,7 +31,7 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
     <div class="aspect-[3/4] p-2 [grid-area:a] sm:aspect-[2/1] xl:aspect-[2/1]">
       <div class="bg-muted size-full border">
         <div
-          class="size-full bg-[url('/static/bento/about-background-square.png')] bg-cover bg-center bg-no-repeat sm:bg-[url('/static/bento/about-background.png')]"
+          class="bento-bg-brighten size-full bg-[url('/static/bento/about-background-square.png')] bg-cover bg-center bg-no-repeat sm:bg-[url('/static/bento/about-background.png')]"
         >
           <div
             data-overlay
@@ -41,16 +43,12 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
                 <p
                   class="text-foreground/80 bg-background block border p-3 text-sm text-pretty"
                 >
-                  Hey, I&rsquo;m Yifan! I&rsquo;m a student at South China University of Technology.
+                  Hey, I&rsquo;m Yifan! I&rsquo;m a student @SCUT, hoping to connect with like-minded people.
                 </p>
                 <p
                   class="text-foreground/80 bg-background block border p-3 text-sm text-pretty"
                 >
-                  Safety Eng | ML & RL learner. Based in Tianhe, Guangzhou. Up for badminton? You can read more about me <Link
-                    href="/about"
-                    class="text-foreground decoration-muted-foreground hover:decoration-foreground font-medium break-words underline underline-offset-[3px] transition-colors"
-                    >here</Link
-                  >!
+                  Welcome to my <Link href="/blog" class="text-foreground decoration-muted-foreground hover:decoration-foreground font-medium break-words underline underline-offset-[3px] transition-colors">blog</Link>! This is my personal space to share my <Link href="/tags/study" class="text-foreground decoration-muted-foreground hover:decoration-foreground font-medium break-words underline underline-offset-[3px] transition-colors">study notes</Link>, <Link href="/tags/learning" class="text-foreground decoration-muted-foreground hover:decoration-foreground font-medium break-words underline underline-offset-[3px] transition-colors">explorations</Link>, and <Link href="/tags/recommendations" class="text-foreground decoration-muted-foreground hover:decoration-foreground font-medium break-words underline underline-offset-[3px] transition-colors">recommendations</Link>.
                 </p>
               </div>
             </div>
@@ -61,7 +59,7 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
     <div class="aspect-square p-2 [grid-area:b]">
       <div data-trigger class="bg-muted size-full border">
         <div
-          class="size-full bg-[url('/static/bento/details-background.png')] bg-cover bg-center bg-no-repeat"
+          class="bento-bg-brighten size-full bg-[url('/static/bento/details-background.png')] bg-cover bg-center bg-no-repeat"
         >
           <div
             class="relative size-full bg-[url('/static/bento/details-foreground.png')] bg-cover bg-center bg-no-repeat transition-opacity duration-200 sm:opacity-0 sm:hover:opacity-100"
@@ -69,7 +67,13 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
             <p
               class="text-foreground/80 bg-background absolute top-1/2 left-0 mr-24 ml-4 -translate-y-1/2 border p-3 text-xs text-pretty"
             >
-              Welcome to my blog! This is my personal space to share thoughts, projects, and experiences.
+              Safety Eng<br />
+              ML & RL learner<br />
+              <span class="whitespace-nowrap">Read more about me <Link
+                href="/about"
+                class="text-foreground decoration-muted-foreground hover:decoration-foreground font-medium break-words underline underline-offset-[3px] transition-colors"
+                >here</Link
+              >!</span>
             </p>
           </div>
         </div>
@@ -93,7 +97,7 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
     <div class="aspect-[6/5] p-2 [grid-area:e] sm:aspect-[2/1]">
       <div data-trigger class="bg-muted size-full border">
         <div
-          class="group/blog relative size-full bg-[url('/static/bento/blog-background-square.png')] bg-cover bg-center bg-no-repeat sm:bg-[url('/static/bento/blog-background.png')]"
+          class="bento-bg-brighten group/blog relative size-full bg-[url('/static/bento/blog-background-square.png')] bg-cover bg-center bg-no-repeat sm:bg-[url('/static/bento/blog-background.png')]"
         >
           <div
             class="absolute size-full bg-[url('/static/bento/blog-middle-square.png')] bg-cover bg-center bg-no-repeat sm:bg-[url('/static/bento/blog-middle.png')]"
@@ -220,7 +224,7 @@ const latestPost = await getAllPosts().then((posts) => posts.at(0))
     </div>
     <div class="aspect-square p-2 [grid-area:j]">
       <div class="bg-muted size-full border">
-        <WakatimeGraph client:load />
+        <NpmDownloads client:load />
       </div>
     </div>
     <div class="aspect-square p-2 [grid-area:k]">
