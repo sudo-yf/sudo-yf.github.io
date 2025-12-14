@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "12.14.mdx",
+                "file": "12.15.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12.14"
+              "title": "12.15"
             }
           }
         ],
@@ -200,12 +200,13 @@
   },
   "active": "31c939c662c49d7e",
   "lastOpenFiles": [
+    "12.14.mdx",
+    "12.15.mdx",
     "assets/6b93e4ad4a00d2d223e1fb0ea3141c02.jpg",
     "assets/f6836d2d755614067c228f23ff1f344e.jpg",
     "assets/d28ce792e3344c1380c80db05016ea42.jpg",
     "assets/d9a3d68e8baa26972daa23544c0cfb76.jpg",
     "assets/Pasted image 20251214032753.png",
-    "12.14.mdx",
     "assets",
     "你好啊.md",
     "Study/index.mdx",
@@ -231,7 +232,6 @@
     "SCUT-study/12-14 1.md",
     "SCUT-study/12-14 3.md",
     "工程力学/attachments/微信图片_20251126203311_80_44.jpg",
-    "工程力学/attachments/Pasted image 20251127103042.png",
     "工程力学/组合变形.canvas",
     "工程力学/未命名.md",
     "工程力学/惯性矩.md",
