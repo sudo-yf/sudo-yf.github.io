@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "12.15.mdx",
+                "file": "12.16.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12.15"
+              "title": "12.16"
             }
           }
         ],
@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:study",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -200,8 +200,10 @@
   },
   "active": "31c939c662c49d7e",
   "lastOpenFiles": [
-    "12.14.mdx",
+    "assets/4793503b892fd3bea0477de4710b4830.jpg",
     "12.15.mdx",
+    "12.16.mdx",
+    "12.14.mdx",
     "assets/6b93e4ad4a00d2d223e1fb0ea3141c02.jpg",
     "assets/f6836d2d755614067c228f23ff1f344e.jpg",
     "assets/d28ce792e3344c1380c80db05016ea42.jpg",
@@ -224,7 +226,6 @@
     "Study/scut-study/parent-index.mdx",
     "Recommendations/index.mdx",
     "Life/welcome/index.mdx",
-    "Study/scut-study/index.mdx",
     "Study/scut-study/12-14.md",
     "Study/scut-study/assets/Pasted image 20251213042435.png",
     "SCUT-study/12-14 2.md",
@@ -242,7 +243,6 @@
     "工程力学/圆轴扭转.canvas",
     "工程力学/压杆稳定.canvas",
     "工程力学/压感稳定.md",
-    "工程力学/attachments",
     "大学物理/大学物理考频.md",
     "大学物理/最主要的公式.canvas",
     "SCUT-study/12-14.md",
