@@ -1,0 +1,156 @@
+---
+title: 期末｜12-17
+description: 刷第二套大物卷 整理四套试卷错题
+date: 2025-12-17
+tags:
+  - study
+authors:
+  - yifan
+---
+
+### 第一部分：工程力学（材料力学）
+
+#### **1. 弹性常数与胡克定律**
+*   **胡克定律：** $\sigma = E\varepsilon$
+*   **泊松比：** $\nu = \left| \frac{\varepsilon'}{\varepsilon} \right|$
+*   **剪切模量与弹性模量：** $G = \frac{E}{2(1+\nu)}$
+ **剪切模量与弹性模量推导过程：
+ *   **核心公式：** $\boxed{G = \frac{E}{2(1+\nu)}}$
+    1.  **纯剪切：** 单元体受剪力 $\tau$，剪应变 $\gamma = \tau/G$。
+    2.  **应力转换：** 旋转 $45^\circ$ 后，主应力 $\sigma_1 = \tau, \sigma_2 = -\tau$。
+    3.  **胡克定律：** 主方向线应变 $\varepsilon_1 = \frac{1}{E}[\sigma_1 - \nu\sigma_2] = \frac{\tau(1+\nu)}{E}$。
+    4.  **几何关系：** 线应变与剪应变满足 $\varepsilon_1 = \gamma/2$。
+    5.  **联立：** $\frac{\tau(1+\nu)}{E} = \frac{1}{2} \cdot \frac{\tau}{G}$，得证。
+
+
+*   **题目思路：** 涉及 $\Delta \sigma = \frac{\Delta F}{A}$ 的计算，推导 $E, G$。
+
+#### **2. 梁的弯曲（内力与变形）**
+*   **简支梁模型：**
+    *   全梁受匀布载荷 $q$，跨中弯矩最大：$M_{max} = \frac{ql^2}{8}$。
+    *   **内力图画法：**
+        1.  常规法：画剪力图 $F_Q$、弯矩图 $M$。
+        2.  极值法：剪力为0处，弯矩取极值。
+*   均布载荷弯矩方程：
+    *   通用公式思路：$M(x) = (\text{取矩点左/右侧力矩和}) - \frac{1}{2}q(x-x_0)^2$
+
+#### 3. 压杆稳定 & 材料特性
+*   **欧拉公式（压杆稳定）：**
+    $$F_{cr} = \frac{\pi^2 EI}{(\mu l)^2}$$
+    *   $\mu$：长度系数（取决于约束条件）。
+*   **冷作硬化：** 强度硬度$\uparrow$，塑性延伸率$\downarrow$，模量$E$不变。
+
+
+#### 4. 弯曲应力与刚度
+*   **弯曲正应力：**
+    $$\sigma = \frac{My}{I_z}, \quad \sigma_{max} = \frac{M_{max}}{W_z}$$
+    *   对于圆形截面：$W_z = \frac{\pi d^3}{32}$。
+*   **弯曲刚度（挠度）：**
+    *   挠度 $\delta \propto \int \frac{M(x)}{EI} dx$
+    *   结论：$\delta \propto \frac{1}{EI}$。对于圆截面 $I \propto d^4$，故挠度 $\delta \propto \frac{1}{d^4}$（直径对刚度影响极大）。
+
+#### 5. 内力与应力对应表
+| 变形形式 | 内力符号 | 应力分布 | 公式 |
+| :--- | :--- | :--- | :--- |
+| **轴力** (拉/压) | $N$ | 均匀分布 | $\sigma = \frac{N}{A}$ |
+| **剪切** | $V$ (或 $F_s$) | 假设均匀(近似) | $\tau = \frac{V}{A}$ |
+| **弯曲** | $M$ | 线性分布 | $\sigma = \frac{My}{I}$ |
+| **扭转** | $T$ | 线性分布 | $\tau = \frac{T\rho}{I_p}$ |
+| **矩形截面剪应力** | - | 抛物线分布 | $\tau = \frac{VS^*}{Ib}$ |
+剪切应力分布
+    *   公式形式：$\tau_{max} = k \frac{V}{A}$ （$V$为剪力，$A$为面积）
+    *   **矩形：** $k = \frac{3}{2} = 1.5$ 
+    *   **圆形：** $k = \frac{4}{3} \approx 1.33$ 
+    *   **工字型：** $k \approx 1$ 
+#### **6. 强度理论（复杂应力状态）**
+*   **第三强度理论（最大剪应力理论）：**
+    *   **主应力形式：** $\sigma_{r3} = \sigma_1 - \sigma_3 \leq [\sigma]$
+    *   圆轴弯扭组合：$\sigma_{r3} = \sqrt{\sigma^2 + 4\tau^2} = \frac{1}{W}\sqrt{M^2 + T^2}$
+*   **第四强度理论（形状改变比能理论）：**
+    *   主应力形式：$\sigma_{r4} = \sqrt{\frac{1}{2}[(\sigma_1-\sigma_2)^2 + (\sigma_2-\sigma_3)^2 + (\sigma_3-\sigma_1)^2]} \leq [\sigma]$
+    *   圆轴弯扭组合：$\sigma_{r4} = \sqrt{\sigma^2 + 3\tau^2} = \frac{1}{W}\sqrt{M^2 + 0.75T^2}$
+
+---
+
+### 第二部分：大学物理
+
+*   **求电势 $\varphi$：**
+    *   **定义法/积分法：** $\varphi = \int d\varphi = \int \frac{dq}{4\pi\varepsilon_0 r}$
+    *   **关系法：** 利用场强积分 $d\varphi = -\vec{E} \cdot d\vec{l}$ （笔记写为 $d\varphi = E \cdot dl$，注意有负号）。
+
+*   **求电场 $\vec{E}$：**
+    1.  **叠加法（库仑定律微元）：** $d\vec{E} = \frac{1}{4\pi\varepsilon_0} \frac{dq}{r^2} \hat{r}$ （适用于非对称分布）。
+    2.  **高斯定理：** $\oint \vec{E} \cdot d\vec{S} = \frac{q_{in}}{\varepsilon_0}$ （适用于具有球、柱、面对称性的分布）。
+
+*   **求磁场 $\vec{B}$：**
+    1.  **叠加法（毕奥-萨伐尔定律）：** $d\vec{B} = \frac{\mu_0}{4\pi} \frac{I d\vec{l} \times \hat{r}}{r^2}$，大小 $dB = \frac{\mu_0 I dl \sin\theta}{4\pi r^2}$。
+    2.  **安培环路定理：** $\oint \vec{B} \cdot d\vec{l} = \mu_0 I_{in}$ （适用于无限长直导线、螺线管等对称分布）。
+
+##### 基于高斯定理的几个模型：
+1.  **球对称模型（点电荷/均匀带电球壳）：**
+    *   公式：$\boxed{E = \frac{q}{4\pi\varepsilon_0 r^2}}$
+2.  **轴对称模型（无限长均匀带电直线）：**
+    *   公式：$\boxed{E = \frac{\lambda}{2\pi\varepsilon_0 r}}$ （$\lambda$：线密度）
+3.  **面对称模型（无限大均匀带电平面）：**
+    *   公式：$\boxed{E = \frac{\sigma}{2\varepsilon_0}}$ （$\sigma$：面密度；注意场强与距离无关）
+
+#### 1. 电磁学基础（2013-2014 & 2021-2022 标记块）
+*   **定则：**
+    *   左手定则：判断安培力/洛伦兹力方向。
+    *   右手螺旋定则：判断电流产生的磁场方向。
+*   **毕奥-萨伐尔定律 (Biot-Savart Law)：**
+    *   元电流磁场：$d\vec{B} = \frac{\mu_0}{4\pi} \frac{I d\vec{l} \times \vec{e}_r}{r^2}$
+    *   大小：$dB = \frac{\mu_0 I dl \sin\theta}{4\pi r^2}$
+    *   **载流直导线磁场：** $B = \frac{\mu_0 I}{4\pi a} (\cos\theta_1 - \cos\theta_2)$ 【笔记中写的是 $\sin$，取决于角度定义，若 $\theta$ 为与导线夹角则用 $\cos$，若为与垂线夹角则用 $\sin$，需注意正负号】。
+    *   无限长直导线：$B = \frac{\mu_0 I}{2\pi a}$。
+
+##### 基于Biot-Savart Law的几个模型：
+1.  **无限长直导线模型：**
+    *   公式：$\boxed{B = \frac{\mu_0 I}{2\pi r}}$
+2.  **圆电流中心模型：**
+    *   公式：$\boxed{B = \frac{\mu_0 I}{2R}}$ （若为圆弧则按比例缩放）
+3.  **长直螺线管内部模型：**
+    *   公式：$\boxed{B = \mu_0 nI}$ （$n=N/L$，单位长度匝数）
+4.  **螺绕环模型：**
+    *   公式：$\boxed{B = \frac{\mu_0 NI}{2\pi r}}$ （磁场集中在环内）
+
+
+*   **安培环路定理：** $\oint \vec{H} \cdot d\vec{l} = \sum I_{in}$
+*   **高斯定理（电/磁）：**
+    *   电场：$\oint \vec{E} \cdot d\vec{S} = \frac{q_{in}}{\varepsilon_0}$
+    *   磁场：$\oint \vec{B} \cdot d\vec{S} = 0$ （磁单极子不存在）。
+*   **电磁感应：**
+    *   法拉第定律：$\varepsilon = -\frac{d\Phi}{dt}$。
+    *   动生电动势：$\varepsilon = \int (\vec{v} \times \vec{B}) \cdot d\vec{l}$ （如直棒切割 $E = BLv$）。
+    *   自感电动势：$\varepsilon_L = -L \frac{di}{dt}$。
+    *   互感电动势：L换成M
+    *   互感：$M_{12} = M_{21}$。
+    *   磁场能量密度：$w_m = \frac{1}{2} \frac{B^2}{\mu_0}$ （笔记中 $\mu_0$ 写在分母是正确的）。
+    *   线圈磁能：$W = \frac{1}{2} Li^2$。
+
+#### 2. 带电粒子在磁场中运动
+*   **洛伦兹力提供向心力：** $qvB = m \frac{v^2}{R}$
+*   **回旋半径：** $R = \frac{mv}{qB}$
+*   **回旋周期：** $T = \frac{2\pi m}{qB}$
+*   **磁矩：** $P_m = IS$ （或 $\vec{m} = I\vec{S}$）。
+*   **磁力矩：** $\vec{M} = \vec{P}_m \times \vec{B}$，大小 $M = BIS \sin\theta$。
+
+#### 3. 近代物理（量子初步）
+*   **光电效应：**
+    *   方程：$h\nu = W + E_{k,max}$ 
+    *   截止频率（红限）：$h\nu_0 = W$。
+*   **德布罗意波（物质波）：**
+    *   波长：$\lambda = \frac{h}{p} = \frac{h}{mv}$
+    *   经电压 $U$ 加速后的电子波长：$\lambda = \frac{h}{\sqrt{2meU}}$。
+*   **波尔模型：**
+    *   能级跃迁：$\Delta E = h\nu = E_n - E_m$。
+    *   光谱线系：
+*   **康普顿效应 (Compton Effect)：**
+    *   $\Delta \lambda = \lambda' - \lambda = \frac{h}{m_0 c} (1 - \cos\theta)$。
+*   **相对论（狭义）：**
+    *   质能方程：$E = mc^2$。
+    *   动能：$E_k = mc^2 - m_0 c^2 = (\gamma - 1)m_0 c^2$。
+
+
+
+![[0d34655a12b3dcf7109922f8963ff292.jpg]]
