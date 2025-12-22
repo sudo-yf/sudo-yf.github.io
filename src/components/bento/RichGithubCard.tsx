@@ -46,7 +46,10 @@ const RichGithubCard = memo(() => {
         >
             <div className="grid size-full grid-rows-4">
                 {/* Banner */}
-                <div className={`bg-border/25 bg-[url('${BASE_URL}static/bento/github-background.png')] bg-cover bg-center bg-no-repeat`} />
+                <div
+                    className="bg-border/25 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${BASE_URL}static/bento/github-background.png')` }}
+                />
 
                 <div className="bg-muted row-span-3 flex flex-col gap-3 p-3">
                     <AvatarSection />
