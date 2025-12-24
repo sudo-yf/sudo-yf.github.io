@@ -27,16 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "笔记-工程力学3.mdx",
+                "file": "探索-onshape尝试.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "笔记-工程力学3"
+              "title": "探索-onshape尝试"
+            }
+          },
+          {
+            "id": "ffb1e3f015b2ba3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "笔记-工程力学考后复盘.mdx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "笔记-工程力学考后复盘"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -198,30 +212,29 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "31c939c662c49d7e",
+  "active": "ffb1e3f015b2ba3a",
   "lastOpenFiles": [
+    "绩点基本情况.md",
+    "笔记-工程力学考后复盘.mdx",
+    "探索-onshape尝试.mdx",
+    "笔记-公式速查.mdx",
+    "笔记-工程力学2.mdx",
+    "笔记-大学物理.mdx",
+    "笔记-工程力学3.mdx",
+    "笔记-工程力学.mdx",
+    "笔记-工程制图.mdx",
     "assets/Pasted image 20251223165614.png",
     "assets/Pasted image 20251223165305.png",
     "assets/Pasted image 20251223165149.png",
-    "笔记-工程力学2.mdx",
     "assets/23436fd0a39b36f7bc036ee99909458a.jpg",
-    "笔记-工程力学3.mdx",
     "assets/e55912979a67cf1d5d7bc28d7aed30e7.jpg",
     "assets/ade2d61282ba43bbd967046584dbca30.jpg",
     "assets/ac0f91c57da157f7051618b007c167f8 1.jpg",
     "assets/ac0f91c57da157f7051618b007c167f8.jpg",
     "assets/1374382579a3420ca2e0e004828eb062.png",
     "assets/f35f4df42e45e6032c00f9a232ef3718.jpg",
-    "assets/cbcf5960a923e892442632edb2959312.jpg",
-    "笔记-公式速查.mdx",
-    "笔记-工程制图.mdx",
-    "笔记-工程力学.mdx",
-    "探索-onshape尝试.mdx",
     "笔记-大化速成.mdx",
     "笔记-电工学.mdx",
-    "12.17.mdx",
-    "未命名.md",
-    "12.15.mdx",
     "12.17.md",
     "你好啊.md",
     "Study/test-long-content.md",
