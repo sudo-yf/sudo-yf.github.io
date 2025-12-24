@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "笔记-大化速成.mdx",
+                "file": "工程力学/index.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "笔记-大化速成"
+              "title": "index"
             }
           }
         ],
@@ -214,15 +214,18 @@
   },
   "active": "ffb1e3f015b2ba3a",
   "lastOpenFiles": [
+    "工程力学/笔记-工程力学考后复盘.mdx",
+    "工程力学/assets/Pasted image 20251223165614.png",
+    "工程力学/笔记-工程力学.mdx",
+    "工程力学/笔记-工程力学3.mdx",
     "工程力学/index.mdx",
+    "笔记-大化速成.mdx",
     "笔记-大学物理.mdx",
     "笔记-电工学.mdx",
     "笔记-工程制图.mdx",
     "笔记-公式速查.mdx",
     "绩点基本情况.md",
     "工程力学/笔记-工程力学2.mdx",
-    "工程力学/笔记-工程力学3.mdx",
-    "工程力学/assets/Pasted image 20251223165614.png",
     "工程力学/assets/Pasted image 20251223165305.png",
     "工程力学/assets/Pasted image 20251223165149.png",
     "工程力学/assets/feed06e2997307b86e4f6c0594b9a5b0.jpg",
@@ -232,10 +235,6 @@
     "工程力学/assets/d96628dcdb9065027913eebafe85d8e2.jpg",
     "工程力学/assets/cbcf5960a923e892442632edb2959312.jpg",
     "工程力学/assets/ade2d61282ba43bbd967046584dbca30.jpg",
-    "工程力学/assets",
-    "工程力学/笔记-工程力学.mdx",
-    "工程力学/笔记-工程力学考后复盘.mdx",
-    "工程力学",
     "12.17.md",
     "你好啊.md",
     "Study/test-long-content.md",

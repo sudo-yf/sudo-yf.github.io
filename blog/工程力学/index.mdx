@@ -7,84 +7,169 @@ tags:
 authors:
   - yifan
 ---
-
-## 📚 工程力学学习笔记合集
-
-这是工程力学期末复习的完整笔记系列，涵盖了从基础概念到重点题型的全部内容。
-
-### 📖 笔记列表
-
-本系列包含以下4篇笔记：
-
-1. **[期末｜工程力学](./笔记-工程力学.mdx)** - 基础公式与概念
-   - 应力与变形基础
-   - 应力状态分析  
-   - 强度理论与梁的弯曲
-   - 弯曲变形与压杆稳定
-
-2. **[期末｜工程力学题型](./笔记-工程力学2.mdx)** - 考试题型总结
-   - 组合变形与压杆稳定
-   - 应力状态、扭转与弯曲
-   - 9个核心题型解析
-   - 典型例题与易错点
-
-3. **[期末｜工程力学公式默写](./笔记-工程力学3.mdx)** - 公式速记与纠错
-   - 所有核心公式默写清单
-   - 常见错误公式纠正
-   - 单位换算注意事项
-   - 空心实心性能比较
-
-4. **[期末｜工程力学考后复盘](./笔记-工程力学考后复盘.mdx)** - 学习方法总结
-   - 学习路线感悟
-   - 核心原则
-   - 时间分配建议
+@ -1,166 +0,0 @@
+---
+title: 期末｜工程力学题型
+description: 总结九个题型/考试重点
+date: 2025-12-23
+tags:
+  - study
+authors:
+  - yifan
+---
 
 ---
 
-## 🎯 学习建议
+![[2966ed32e7d3603848a43f2640959075.jpg]]
+![[130c65194ec609704bbc325f066dd2af.jpg]]
+![[3e7b4841ac7e2a30d64b36901c6d9294.jpg]]
+![[97a52de1843c45185b3355f9ad52d8af 1.jpg]]
+![[5de5d569f087a6c92b808e439b105f3e.jpg]]
+![[feed06e2997307b86e4f6c0594b9a5b0.jpg]]
+![[d96628dcdb9065027913eebafe85d8e2.jpg]]
+![[ac0f91c57da157f7051618b007c167f8 1.jpg]]
+![[f35f4df42e45e6032c00f9a232ef3718.jpg]]
+[【平面应力状态分析 求主应力画主平面】](https://www.bilibili.com/video/BV1K9MNzcEN6/?share_source=copy_web&vd_source=b122d8ce20bc303c76316e91cf190251)
+![[1374382579a3420ca2e0e004828eb062.png]]
+![[cbcf5960a923e892442632edb2959312.jpg]]
+### 难点一：挠度
+![[23436fd0a39b36f7bc036ee99909458a.jpg]]
+### 第一页：组合变形与压杆稳定
 
-**复习顺序推荐：**
-1. 先看 **笔记1（基础公式）** 过一遍基本概念
-2. 重点学习 **笔记2（题型）**，理解各类题目的解题思路
-3. 用 **笔记3（公式默写）** 自测，查漏补缺
-4. 考后阅读 **笔记4（复盘）** 总结经验
 
-**重点关注：**
-- 🔴 组合变形问题（拉压+弯曲，弯扭组合）
-- 🔴 压杆稳定性计算（欧拉公式、柔度判断）
-- 🔴 平面应力状态分析（莫尔圆、主应力）
-- 🔴 弯曲应力计算（T型梁、不对称截面）
+**1. 组合变形 (Combined Deformation):**
+*   公式：$\sigma = \sigma_N + \sigma_M = \frac{F_N}{A} \pm \frac{M_{max}y}{I_z} \rightarrow \frac{M_{max}}{W_z}$
+*   **圆柱 (Cylinder):**
+    *   第三强度理论：$\sigma_{r3} = \frac{1}{W_z}\sqrt{M^2 + T^2}$
+    *   第四强度理论：$\sigma_{r4} = \frac{1}{W_z}\sqrt{M^2 + 0.75T^2}$
+
+**2. 剪切与挤压 (Shear and Bearing):**
+*   剪切：$\tau = \frac{F_s}{A}$
+*   挤压：$\sigma_{bs} = \frac{F_{pc}}{A_{bs}}$
+
+**3. 压杆 (Columns / Buckling):**
+*   临界力 (Euler Force)：$F_{pcr} = \frac{\pi^2 EI}{(\mu l)^2}$
+*   **长度系数 $\mu$ (Length factor):**
+    *   两端铰支 (Pinned-Pinned)：$\mu = 1$
+    *   一端固定，一端自由 (Fixed-Free)：$\mu = 2$
+    *   一端固定，一端铰支 (Fixed-Pinned)：$\mu = 0.7$
+    *   两端固定 (Fixed-Fixed)：$\mu = 0.5$
+
+**4. 临界应力 (Critical Stress):**
+*   $\sigma_{cr} = \frac{F_{pcr}}{A} = \frac{\pi^2 EI}{(\mu l)^2 A} = \frac{\pi^2 E}{(\frac{\mu l}{i})^2}$
+*   柔度 (Slenderness ratio)：$\lambda = \frac{\mu l}{i}$
+*   $\therefore \sigma_{cr} = \frac{\pi^2 E}{\lambda^2}$
+
+**5. 压杆分类 (Classification based on Slenderness):**
+*   **直线 (Straight Line Formula area):**
+    *   $\lambda \ge \lambda_p$：大柔度杆，用欧拉公式，$\lambda_p = \pi\sqrt{\frac{E}{\sigma_p}}$
+    *   $\lambda_0 \le \lambda < \lambda_p$：中柔度杆，$\sigma_{cr} = a - b\lambda$
+    *   $\lambda < \lambda_0$：小柔度杆，$\sigma_{cr} = \sigma_{cu}$ (强度极限)
+
+**6. 压杆稳定性 (Stability Check):**
+*   稳定安全系数：$n = \frac{F_{pcr}}{F_p} = \frac{\sigma_{cr} A}{F_p} > n_{st}$
+*   稳定校核：$\sigma = \frac{F_p}{A} \le \varphi [\sigma]$
+
+**7. 抛物线 (Parabolic formula area - 笔记此处略乱，似在补充说明):**
+*   $\lambda \ge \lambda_c$：欧拉公式 $\sigma_{cr} = \frac{\pi^2 E}{\lambda^2}$
+*   $\lambda < \lambda_c$：$a - b\lambda^2$ (抛物线公式)
+
+**8. 动荷系数 (Dynamic Load Factor):**
+*   $K_d = 1 + \sqrt{1 + \frac{2h}{\Delta_{st}}}$
 
 ---
 
-## 📝 核心知识点速览
+### 第二页：应力状态、扭转与弯曲
 
-### 四大变形类型
+**1. 基本定义 (Basics):**
+*   $\sigma = \frac{F}{A}$, $E = \frac{\sigma}{\epsilon}$, $\epsilon = \frac{\Delta l}{l}$, $\epsilon' = \frac{\Delta d}{d}$, $\nu = - \frac{\epsilon'}{\epsilon}$
 
-| 变形形式 | 刚度表达式 | 强度公式 | 变形公式 |
-|---------|-----------|---------|---------|
-| 拉压 | $EA$ | $\sigma = \frac{F}{A}$ | $\Delta L = \frac{FL}{EA}$ |
-| 扭转 | $GI_p$ | $\tau = \frac{T}{W_p}$ | $\varphi = \frac{Tl}{GI_p}$ |
-| 弯曲 | $EI$ | $\sigma = \frac{M}{W_z}$ | $w'' = \frac{M}{EI}$ |
-| 剪切 | - | $\tau = \frac{F_s}{A}$ | - |
+**2. 平面应力状态 (Plane Stress State):**
+*   主应力：$\sigma_{max}, \sigma_{min} = \frac{\sigma_x + \sigma_y}{2} \pm \sqrt{(\frac{\sigma_x - \sigma_y}{2})^2 + \tau_x^2}$
+*   剪切模量：$G = \frac{E}{2(1+\nu)}$
+*   主平面方位角：$\tan 2\alpha = \frac{2\tau_x}{\sigma_x - \sigma_y}$
+*   最大剪应力：$\tau_{max} = \frac{\sigma_1 - \sigma_3}{2}$
+*   任意斜截面上的应力：
+    *   $\sigma_\alpha = \frac{\sigma_x + \sigma_y}{2} + \frac{\sigma_x - \sigma_y}{2}\cos 2\alpha - \tau_x \sin 2\alpha$
+    *   $\tau_\alpha = \frac{\sigma_x - \sigma_y}{2}\sin 2\alpha + \tau_x \cos 2\alpha$
 
-### 四大强度理论
+**3. 扭转 (Torsion):**
+*   剪应力：$\tau = \frac{T \rho}{I_p}$
+*   最大剪应力：$\tau_{max} = \frac{T}{W_p}$, $W_p = \frac{I_p}{R}$
+*   **截面性质 (Section Properties):**
+    *   圆柱：$W_p = \frac{\pi d^3}{16}$, $I_p = \frac{\pi d^4}{32}$
+    *   空心圆：$W_p = \frac{\pi D^3}{16}(1-\alpha^4)$, $I_p = \frac{\pi D^4}{32}(1-\alpha^4)$ (其中 $\alpha=d/D$)
+*   功率与转矩：$T = 9549 \frac{P (kW)}{n (r/min)}$
+*   扭转角：$\theta_{max} = \frac{T_{max}}{G I_p}$, $\varphi = \frac{Tl}{GI_p}$
 
-1. **最大拉应力理论**（第一）：$\sigma_1 \le [\sigma]$ （脆性材料）
-2. **最大伸长线应变理论**（第二）：$\sigma_1 - \mu(\sigma_2 + \sigma_3) \le [\sigma]$
-3. **最大剪应力理论**（第三）：$\sigma_1 - \sigma_3 \le [\sigma]$ （塑性材料）
-4. **畸变能理论**（第四）：$\sqrt{\frac{1}{2}[(\sigma_1-\sigma_2)^2 + (\sigma_2-\sigma_3)^2 + (\sigma_3-\sigma_1)^2]} \le [\sigma]$
+**4. 截面几何性质 (Geometric Properties of Sections):**
+*   惯性矩：$I_z = \int_A y^2 dy$ (应为 dA)
+*   惯性半径：$i_z = \sqrt{\frac{I_z}{A}}$
+*   平行移轴定理：$I_{z1} = I_z + a^2 A$, $I_{z_1 y_1} = I_{y z} + abA$
+
+**5. 弯曲 (Bending):**
+*   圆柱截面模量：$W_z = \frac{\pi d^3}{32}$
+*   空心圆截面模量：$W_z = \frac{\pi D^3}{32}(1-\alpha^4)$
+*   弯曲正应力：$\sigma_{max} = \frac{M_{max}}{W_z}$, $\sigma_c, \sigma_t = \frac{|M|_{max} y_c}{I_z}$
+
+**6. 弯曲剪应力系数 (Shear Stress Factors):**
+*   公式：$\tau_{max} = K \frac{F_s}{A}$
+*   矩形 (Rect)：$K = \frac{3}{2}$
+*   圆形 (Circle)：$K = \frac{4}{3}$
+*   工字形 (I-beam)：$K \approx 1$
+*   圆环 (Ring)：$K = 2$
+
+**7. 当量应力 (Equivalent Stress - 对应第一页):**
+*   $\sigma_{r3} = \sqrt{\sigma^2 + 4\tau^2}$
+*   $\sigma_{r4} = \sqrt{\sigma^2 + 3\tau^2}$
+
+![[fb55cf4cd194da26df1b76edf0e4b66a.jpg]]
+### 1. 形心计算 $y_c$ (严重错误)
+*   **你的做法**：
+    $$y_c = \frac{150 \times 50 + 200 \times 50}{250} = 70$$
+    你用的是“总面积除以总宽度(?)”，这个物理意义是错的。
+*   **正确做法**：
+    形心公式必须是**面积矩之和除以总面积** ($\frac{\sum A_i y_i}{\sum A_i}$)。
+    *   **上翼缘**：$A_1 = 150 \times 50 = 7500$，形心 $y_1 = 25$。
+    *   **腹板**：$A_2 = 50 \times 200 = 10000$，形心 $y_2 = 50 + \frac{200}{2} = 150$。
+    *   **计算**：
+        $$y_c = \frac{7500 \times 25 + 10000 \times 150}{7500 + 10000} = \frac{1687500}{17500} = 96.4\text{ mm}$$
+*   **后果**：你算出的 $y_c=70$ 导致中性轴位置偏上，直接导致后续应力计算全部错误。
+
+### 2. 弯矩图与最大弯矩 (概念模糊)
+*   **你的做法**：画出了 $M_{max} = 40$，这点数值上是碰巧对的，但图形和分析不够清晰。
+*   **分析**：
+    *   **AC段** (左侧)：受 $F_P$ 向下作用，产生负弯矩（上拉下压）。C点左侧弯矩 $M_{C-} = -10 \text{ kN} \times 3 \text{ m} = -30 \text{ kN}\cdot\text{m}$。
+    *   **C截面**：突加力偶 $M_e = 70 \text{ kN}\cdot\text{m}$（顺时针）。弯矩图突变：$-30 + 70 = +40 \text{ kN}\cdot\text{m}$。
+    *   **CB段** (右侧)：C点右侧弯矩为 $+40$（下拉上压），向右递减直到墙根 B 点 $M_B = +10$。
+    *   **结论**：危险截面在 C 点右侧，**最大弯矩 $M_{max} = 40 \text{ kN}\cdot\text{m}$**。
+
+### 3. 强度校核 (逻辑错误，结论错误)
+*   **你的做法**：
+    算出应力 $\approx 27.45 \text{ MPa}$，然后结论写“安全”。
+    你可能只算了压力或者用错了 $y$ 距离。
+*   **正确做法**：
+    T型截面不对称，必须分别校核**受拉**和**受压**。
+    在 $M = 40 \text{ kN}\cdot\text{m}$ (正弯矩，下凸) 的截面上：
+    *   **上边缘 (受压)**：距离中性轴 $y_1 = 96.4 \text{ mm}$。
+        $$\sigma_c = \frac{M \cdot y_1}{I_z} = \frac{40 \times 10^6 \times 96.4}{1.02 \times 10^8} \approx 37.8 \text{ MPa} \quad (< 120 \text{ MPa}, \text{合格})$$
+    *   **下边缘 (受拉)**：距离中性轴 $y_2 = 250 - 96.4 = 153.6 \text{ mm}$。
+        $$\sigma_t = \frac{M \cdot y_2}{I_z} = \frac{40 \times 10^6 \times 153.6}{1.02 \times 10^8} \approx \mathbf{60.2 \text{ MPa}}$$
+*   **结论**：
+    题目给定的许用拉应力 $[\sigma_t] = 40 \text{ MPa}$。
+    **$60.2 \text{ MPa} > 40 \text{ MPa}$，超标！**
+    **结构是不安全的！**
 
 ---
 
-## ⚠️ 易错提醒
+1.  **背熟形心公式**：$\bar{y} = \frac{\sum Ay}{\sum A}$，绝对不能把分母写成长度。
+2.  **T型梁必考不对称校核**：一旦看到 T 型梁，必须意识到 $y_{top} \neq y_{bottom}$。如果材料的抗拉和抗压许用应力不同（如本题 40 vs 120），必须把上下边缘的应力都算出来，拿大的去比对。
+3.  **不要为了凑“安全”而强行写结论**：计算结果是 60.2，题目要求是 40，那就是不安全。这题的考点就是想让你发现“虽然受压合格，但受拉不合格”。
 
-- ❌ 扭转变形用 $I_p$，不是 $W_p$
-- ❌ 动荷系数公式：根号内**没有平方**
-- ❌ 空心圆截面系数：$\alpha$ 是 **4次方**
-- ❌ T型梁必须分别校核拉、压应力
-- ❌ 形心公式：$y_c = \frac{\sum A_i y_i}{\sum A_i}$
 
----
-
-祝学习顺利！🎓
+| **变形形式**     | **对应模量**       | **主要应力类型**                                     | **最大应力公式 (σmax​ 或 τmax​)**                                           | **变形计算公式**                                                            | **备注**                                              |
+| ------------ | -------------- | ---------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------- |
+| **轴向拉伸/压缩**  | **$E$** (弹性模量) | **正应力 $\sigma$**                               | $$\sigma_{max} = \frac{F_N}{A}$$                                     | **轴向伸长量：**<br /><br />$$\Delta L = \frac{F_N L}{EA}$$                 | 最基础的变形，$EA$ 为抗拉刚度。                                  |
+| **剪切 (连接件)** | **$G$**(切变模量)  | **切应力 $\tau$**                                 | $$\tau = \frac{F_S}{A}$$                                             | (通常不直接计算宏观变形，而是校核剪应变 $\gamma \approx \tau/G$)                         | 常用于铆钉、螺栓计算。                                         |
+| **扭转**       | **$G$**(切变模量)  | **切应力 $\tau$**                                 | $$\tau_{max} = \frac{T R}{I_p} = \frac{T}{W_p}$$<br />               | **扭转角 (弧度)：**<br />$$\varphi = \frac{T L}{G I_p}$$                    | $GI_p$ 为抗扭刚度。                                       |
+| **弯曲**       | **$E$** (弹性模量) | **正应力 $\sigma$**<br /><br />  <br /><br />(主导) | $$\sigma_{max} = \frac{M_{max} y_{max}}{I_z} = \frac{M_{max}}{W_z}$$ | **挠度 (位移)：**<br /><br />  <br /><br />$$w'' = \frac{M(x)}{EI}$$<br /> | $EI$ 为抗弯刚度。弯曲中也有切应力 $\tau$，但通常对变形贡献小，强度校核时多针对细长梁忽略。 |
