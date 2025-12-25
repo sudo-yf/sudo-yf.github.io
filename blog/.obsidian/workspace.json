@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "笔记-工程制图.mdx",
+                "file": "前端学习/index 1.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "笔记-工程制图"
+              "title": "index 1"
             }
           }
         ],
@@ -212,8 +212,14 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "ffb1e3f015b2ba3a",
+  "active": "fcdc54fae2533457",
   "lastOpenFiles": [
+    "工程力学/index.mdx",
+    "前端学习/index 1.mdx",
+    "绩点基本情况.md",
+    "前端学习",
+    "探索-onshape尝试.mdx",
+    "笔记-工程制图.mdx",
     "assets/d8e546434725c6755688bed9694bdbc9.jpeg",
     "assets/59c237f60ea26a5aae97d84b29f9ec44.png",
     "assets/8bc89f7b142a83241336e2705a1f9d3b.png",
@@ -224,18 +230,12 @@
     "assets/Pasted image 20251225002153.png",
     "assets/Pasted image 20251225002132.png",
     "assets/Pasted image 20251225002111.png",
-    "assets/Pasted image 20251225002100.png",
     "笔记-大学物理.mdx",
     "笔记-电工学.mdx",
-    "笔记-工程制图.mdx",
     "笔记-大化速成.mdx",
     "12.17.mdx",
     "12.15.mdx",
-    "工程力学/index.mdx",
     "工程力学/笔记-工程力学考后复盘.mdx",
-    "工程力学/笔记-工程力学.mdx",
-    "工程力学/笔记-工程力学3.mdx",
-    "绩点基本情况.md",
     "12.17.md",
     "你好啊.md",
     "Study/test-long-content.md",
