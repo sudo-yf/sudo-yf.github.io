@@ -1,0 +1,126 @@
+---
+title: 期末｜大学物理
+description: 公式默写
+date: 2025-12-26
+tags:
+  - study
+authors:
+  - yifan
+---
+![[Pasted image 20251226173215.png]]
+- [ ] 电势的计算/例题
+- [ ] 27号早再默写一下所有公式
+
+
+## 电学与磁学的对比分析：
+
+### 1、重要求B与E的公式
+![[bf6331891681346f0c59c9846441da2a.jpg]]
+
+---
+### 电极化 ($\vec{P}$) 与 磁化 ($\vec{M}$) 全维度对比表
+
+| 比较维度       | 电学部分：电极化 ($\vec{P}$)                                    | 磁学部分：磁化 ($\vec{M}$)                                       |
+| :--------- | :------------------------------------------------------ | :-------------------------------------------------------- |
+| **物理量名称**  | **电极化强度**                                               | **磁化强度**                                                  |
+| **宏观定义式**  | $\displaystyle \vec{P} = \frac{\sum \vec{p}}{\Delta V}$ | $\displaystyle \vec{M} = \frac{\sum \vec{p}_m}{\Delta V}$ |
+| **一般本构关系** | $\vec{D} = \varepsilon_0 \vec{E} + \vec{P}$             | $\vec{H} = \frac{\vec{B}}{\mu_0} - \vec{M}$               |
+| **线性介质关系** | $\vec{D} = \varepsilon_0 \varepsilon_r \vec{E}$         | $\vec{B} = \mu_0 \mu_r \vec{H}$                           |
+| **相对系数**   | **相对介电常数 $\varepsilon_r$**                              | **相对磁导率 $\mu_r$**                                         |
+| **系数取值范围** | **总是 $\varepsilon_r \ge 1$**                            | 分三种情况：                                                    |
+|            | (绝缘介质/电介质)                                              | ① **$\mu_r > 1$** (顺磁性)                                   |
+|            |                                                         | ② **$\mu_r \gg 1$** (铁磁性)                                 |
+|            |                                                         | ③ **$\mu_r < 1$** (抗磁性)                                   |
+| **代表性物质**  | 任何绝缘体 (如玻璃、陶瓷)                                          | ① 铝、氧；② **铁**、钴；③ **铜、水**                                 |
+| **物理效应**   | 介质极化电场总是**削弱**原外电场                                      | **增强** (顺磁/铁磁) 或 **削弱** (抗磁) 磁场                           |
+非绝缘介质（导体）的 $\varepsilon_r$无穷大
+
+---
+### 3、能量部分（磁场能不考）
+
+|          | **电场**                                        | **磁场**                                        |
+| :------- | :-------------------------------------------- | :-------------------------------------------- |
+| **通用形式** | $$ w_e = \frac{1}{2} \vec{D} \cdot \vec{E} $$ | $$ w_B = \frac{1}{2} \vec{B} \cdot \vec{H} $$ |
+| **线性介质** | $$ w_e = \frac{1}{2} \varepsilon E^2 $$       | $$ w_B = \frac{1}{2} \mu H^2 $$               |
+|          |                                               |                                               |
+
+---
+
+### 4、电与磁的几个重要模型：
+
+#### 磁学：
+![[Pasted image 20251226124327.png]]
+![[490f2c3722b335653d611be6ab19a96c.jpg]]
+![[df403b843e584d1e5b6703d2454e1057.jpg]]
+#### 电学部分：
+
+![[Pasted image 20251226124354.png]]
+![[57f3a80e317f77b9883c031da062aaa0.jpg]]
+
+---
+## 杂七杂八的公式推导：
+
+### 有无介质的高斯定理公式  电容公式
+
+![[687404281528624e1e75baad3e0bd354.jpg]]
+
+---
+### 高中qvB公式回顾：
+![[6833640be1a1fce7e31841bd1612bd97.jpg]]
+
+---
+### 磁矩与高中公式两个”因B产生力“公式辨析：
+
+![[2d5d66cd9e15005a0c8e77fe75f0fea4.jpg]]
+### 平行载流导线间的磁力
+
+$$
+\begin{aligned}
+B_a &= \frac{\mu_0 i_a}{2\pi d} \\
+F &= B_a \cdot i_b \cdot L \\
+&= \left( \frac{\mu_0 i_a}{2\pi d} \right) \cdot i_b \cdot L \\
+\therefore F &= \frac{\mu_0 L i_a i_b}{2\pi d}
+\end{aligned}
+$$
+
+---
+
+### 自感系数与自感电动势
+
+**定义与基本公式：**
+$$
+\begin{aligned}
+\varepsilon_i &= -\frac{d\Psi}{dt}, \quad \text{其中 } \Psi = N\Phi = N\int_S \vec{B} \cdot d\vec{S} \\
+\Psi &= LI \quad (L\text{为自感系数，单位：H}) \\
+\varepsilon_L &= -\frac{d(LI)}{dt} = -L\frac{dI}{dt} \quad (\text{当 } L \text{ 为常数时}) \\
+L &= \frac{\Psi}{I} = \frac{N\Phi}{I}
+\end{aligned}
+$$
+
+**长直螺线管的自感系数推导：**
+$$
+\begin{aligned}
+L &= \frac{N\Phi}{I} \\
+&= \frac{(nl) \cdot (BS)}{I} \\
+&= \frac{nl \cdot (\mu_0 n I) \cdot S}{I} \\
+&= \mu_0 n^2 (Sl) \\
+&= \mu_0 n^2 V
+\end{aligned}
+$$
+---
+
+## 近代物理部分：
+
+### 洛伦兹变换公式
+![[Pasted image 20251226200356.png]]
+![[Pasted image 20251226215856.png]]
+### 题型总结：
+![[942858165f6a3dcca380fff2dc0ddf4a.jpg]]
+
+---
+
+## 量子论初步：
+![[07965e409a16758b41c0c70d5431902c.jpg]]
+![[Pasted image 20251226215909.png]]
+![[Pasted image 20251227010543.png]]
+![[Pasted image 20251227014108.png]]
