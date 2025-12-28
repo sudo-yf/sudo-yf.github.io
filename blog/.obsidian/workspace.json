@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "笔记-大学物理2 1.mdx",
+                "file": "笔记-电工学 1.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "笔记-大学物理2 1"
+              "title": "笔记-电工学 1"
             }
           }
         ],
@@ -107,7 +107,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "d330d583c5dab385",
@@ -214,18 +215,21 @@
   },
   "active": "ffb1e3f015b2ba3a",
   "lastOpenFiles": [
-    "笔记-大学物理2.mdx",
+    "assets/4e8c18b746ba1bab9297acdeae846faf.jpg",
+    "assets/c055f247b08574f0589de6a66e399f9a.jpg",
+    "assets/Pasted image 20251227221136.png",
+    "assets/Pasted image 20251227221107.png",
+    "assets/3d2311efaf0afe0231c12c3b8cc886dd.jpg",
+    "assets/10decfa4ddd2f6b038380e7d6440c9ca.jpg",
+    "assets/5ea21faffafd69af931ab4ec96a1ea2a.jpg",
+    "assets/aea98842e9353a032c84e0af52b7710f.jpg",
+    "assets/a9a0f5183578cfe5353ecb644fd269e2.jpg",
+    "assets/63f729697581a7ec4fe41643d1143ce2.jpg",
+    "assets/61fefa36aaaeb90b74dbdfc60f2c9fc5.jpg",
+    "笔记-电工学.mdx",
+    "笔记-电工学 1.mdx",
     "笔记-大学物理2 1.mdx",
-    "assets/Pasted image 20251227014108.png",
-    "assets/07965e409a16758b41c0c70d5431902c.jpg",
-    "assets/Pasted image 20251227010543.png",
-    "assets/Pasted image 20251226215909.png",
-    "assets/Pasted image 20251226215856.png",
-    "assets/942858165f6a3dcca380fff2dc0ddf4a.jpg",
-    "assets/Pasted image 20251226200356.png",
-    "assets/Pasted image 20251226200308.png",
-    "assets/Pasted image 20251226173215.png",
-    "assets/6833640be1a1fce7e31841bd1612bd97.jpg",
+    "笔记-大学物理2.mdx",
     "笔记-大学物理.mdx",
     "绩点基本情况.md",
     "笔记-工程制图.mdx",
@@ -233,8 +237,6 @@
     "笔记-大化速成.mdx",
     "工程力学/笔记-工程力学考后复盘.mdx",
     "前端学习/index 1.mdx",
-    "工程力学/index.mdx",
-    "工程力学/笔记-工程力学3.mdx",
     "12.17.md",
     "你好啊.md",
     "Study/test-long-content.md",
