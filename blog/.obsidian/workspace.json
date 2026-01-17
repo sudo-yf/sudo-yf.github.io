@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "笔记-电工学 1.mdx",
+                "file": "RL-001.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "笔记-电工学 1"
+              "title": "RL-001"
             }
           }
         ],
@@ -203,17 +203,20 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false
+      "command-palette:打开命令面板": false
     }
   },
   "active": "ffb1e3f015b2ba3a",
   "lastOpenFiles": [
+    "探索-onshape尝试.mdx",
+    "RL-001.mdx",
+    "笔记-电工学 1.mdx",
     "assets/Pasted image 20251230115320.png",
     "assets/Pasted image 20251230093308.png",
     "assets/Pasted image 20251229223918.png",
@@ -223,7 +226,6 @@
     "assets/dc300d76eed5a82effc4cd10efac327d.jpg",
     "笔记-电工学.mdx",
     "笔记-工程制图.mdx",
-    "笔记-电工学 1.mdx",
     "笔记-大学物理2 1 1.mdx",
     "笔记-大学物理2 1.mdx",
     "笔记-大学物理.mdx",
@@ -231,11 +233,9 @@
     "assets/c76741e3e2cbe82cc98a0790cf18acdf.jpg",
     "assets/9b3c61bdda54e92fe3e0df70d62296c9.jpg",
     "笔记-大化速成.mdx",
-    "assets/714b42d4af9ce865921eecb95a950714.jpg",
     "笔记-大学物理2.mdx",
     "绩点基本情况.md",
     "笔记-公式速查.mdx",
-    "工程力学/笔记-工程力学考后复盘.mdx",
     "12.17.md",
     "你好啊.md",
     "Study/test-long-content.md",
