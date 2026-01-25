@@ -68,12 +68,35 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
 
                         // Handle different file types
                         if (ext === '.pdf') {
-                            // PDF embed: use relative path to PDF file
+                            // Copy PDF to public/pdfs if it's in assets folder
+                            const publicPdfsDir = path.join(process.cwd(), 'public', 'pdfs')
+                            const pdfDestPath = path.join(publicPdfsDir, fileName)
+
+                            // Check if source PDF exists and copy if needed
+                            const sourcePaths = [sameDir, assetsDir, parentAssetsDir]
+                            for (const sourcePath of sourcePaths) {
+                                if (fs.existsSync(sourcePath)) {
+                                    // Ensure public/pdfs directory exists
+                                    if (!fs.existsSync(publicPdfsDir)) {
+                                        fs.mkdirSync(publicPdfsDir, { recursive: true })
+                                    }
+                                    // Copy PDF if not already there or if source is newer
+                                    if (!fs.existsSync(pdfDestPath) ||
+                                        fs.statSync(sourcePath).mtime > fs.statSync(pdfDestPath).mtime) {
+                                        fs.copyFileSync(sourcePath, pdfDestPath)
+                                    }
+                                    break
+                                }
+                            }
+
+                            // Use direct iframe to PDF file (browser's native PDF viewer)
+                            const pdfUrl = `/pdfs/${encodeURIComponent(fileName)}`
+
+                            // Generate simple iframe embed
                             parts.push({
                                 type: 'html',
-                                value: `<div class="pdf-embed" style="margin: 1.5rem 0;">
-  <iframe src="${finalUrl}" width="100%" height="600px" style="border: 1px solid #ccc; border-radius: 4px;"></iframe>
-  <p style="margin-top: 0.5rem; font-size: 0.875rem;"><a href="${finalUrl}" target="_blank" rel="noopener noreferrer">📄 Open PDF in new tab</a></p>
+                                value: `<div class="pdf-embed" style="margin: 2rem 0;">
+  <iframe src="${pdfUrl}" width="100%" height="800px" style="border: 1px solid #e5e7eb; border-radius: 8px;"></iframe>
 </div>`
                             })
                         } else if (['.mp4', '.webm', '.ogg'].includes(ext)) {

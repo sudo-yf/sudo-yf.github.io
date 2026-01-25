@@ -25,10 +25,14 @@
             "id": "31c939c662c49d7e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "强化学习/RL-003.mdx",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "RL-003"
             }
           }
         ],
@@ -196,6 +200,8 @@
   },
   "active": "31c939c662c49d7e",
   "lastOpenFiles": [
+    "强化学习/RL-002.mdx",
+    "工程力学/笔记-工程力学考后复盘.mdx",
     "强化学习/assets/扫描文档2026-01-22 19-52-26.pdf",
     "强化学习/assets/isaaclab.pdf",
     "强化学习/assets/isaaclab 1.pdf",
@@ -205,8 +211,6 @@
     "强化学习/index.mdx",
     "工程制图/index.mdx",
     "大学物理/index.mdx",
-    "大学化学/index.mdx",
-    "前端学习/index.mdx",
     "绩点基本情况.md",
     "assets/ed29be4337287fa3738c026b88b63295.jpg",
     "assets/Pasted image 20260118171409.png",
