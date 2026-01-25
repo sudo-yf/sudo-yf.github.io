@@ -49,16 +49,20 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
                         // Handle embeds: ![[file]]
                         const ext = path.extname(fileName).toLowerCase()
 
-                        // Check file existence
+                        // Check file existence in multiple locations
                         const sameDir = path.join(fileDir, fileName)
                         const assetsDir = path.join(fileDir, 'assets', fileName)
+                        const parentAssetsDir = path.join(fileDir, '..', 'assets', fileName)
 
                         let finalUrl: string
                         if (fs.existsSync(sameDir)) {
                             finalUrl = `./${fileName}`
                         } else if (fs.existsSync(assetsDir)) {
                             finalUrl = `./assets/${fileName}`
+                        } else if (fs.existsSync(parentAssetsDir)) {
+                            finalUrl = `../assets/${fileName}`
                         } else {
+                            // Fallback: try assets in same dir first, then parent
                             finalUrl = `./assets/${fileName}`
                         }
 
