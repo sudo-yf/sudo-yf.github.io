@@ -5,8 +5,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 /**
- * Remark plugin to transform Obsidian-style image embeds (![[image.png]])
- * into standard Markdown image syntax using relative paths.
+ * Remark plugin to transform Obsidian-style embeds and links:
+ * - ![[image.png]] -> image embed
+ * - ![[image.png|500]] -> image embed with width
+ * - ![[document.pdf]] -> PDF iframe embed
+ * - [[page-name]] -> internal link
  */
 const remarkObsidianImages: Plugin<[], Root> = () => {
     return (tree, file) => {
@@ -19,16 +22,18 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
             if (!parent || index === undefined) return
 
             const text = node.value
-            const obsidianImageRegex = /!\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g
 
-            if (obsidianImageRegex.test(text)) {
+            // Match both embeds (![[...]]) and wikilinks ([[...]])
+            const obsidianRegex = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g
+
+            if (obsidianRegex.test(text)) {
                 const parts: any[] = []
                 let lastIndex = 0
 
-                obsidianImageRegex.lastIndex = 0
+                obsidianRegex.lastIndex = 0
                 let match
 
-                while ((match = obsidianImageRegex.exec(text)) !== null) {
+                while ((match = obsidianRegex.exec(text)) !== null) {
                     if (match.index > lastIndex) {
                         parts.push({
                             type: 'text',
@@ -36,28 +41,95 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
                         })
                     }
 
-                    const imageName = match[1].trim()
+                    const isEmbed = match[1] === '!'
+                    const fileName = match[2].trim()
+                    const param = match[3]?.trim() // Could be width for images or alt text
 
-                    // Check existence in filesystem
-                    const sameDir = path.join(fileDir, imageName)
-                    const assetsDir = path.join(fileDir, 'assets', imageName)
+                    if (isEmbed) {
+                        // Handle embeds: ![[file]]
+                        const ext = path.extname(fileName).toLowerCase()
 
-                    // Use relative paths for Astro to process
-                    let finalUrl: string
+                        // Check file existence
+                        const sameDir = path.join(fileDir, fileName)
+                        const assetsDir = path.join(fileDir, 'assets', fileName)
 
-                    if (fs.existsSync(sameDir)) {
-                        finalUrl = `./${imageName}`
-                    } else if (fs.existsSync(assetsDir)) {
-                        finalUrl = `./assets/${imageName}`
+                        let finalUrl: string
+                        if (fs.existsSync(sameDir)) {
+                            finalUrl = `./${fileName}`
+                        } else if (fs.existsSync(assetsDir)) {
+                            finalUrl = `./assets/${fileName}`
+                        } else {
+                            finalUrl = `./assets/${fileName}`
+                        }
+
+                        // Handle different file types
+                        if (ext === '.pdf') {
+                            // PDF embed: create an iframe or link
+                            parts.push({
+                                type: 'html',
+                                value: `<div class="pdf-embed" style="margin: 1.5rem 0;">
+  <iframe src="${finalUrl}" width="100%" height="600px" style="border: 1px solid #ccc; border-radius: 4px;"></iframe>
+  <p style="margin-top: 0.5rem; font-size: 0.875rem;"><a href="${finalUrl}" target="_blank" rel="noopener noreferrer">📄 Open PDF in new tab</a></p>
+</div>`
+                            })
+                        } else if (['.mp4', '.webm', '.ogg'].includes(ext)) {
+                            // Video embed
+                            parts.push({
+                                type: 'html',
+                                value: `<video controls style="max-width: 100%; height: auto; margin: 1rem 0;">
+  <source src="${finalUrl}" type="video/${ext.slice(1)}">
+  Your browser does not support the video tag.
+</video>`
+                            })
+                        } else if (['.mp3', '.wav', '.ogg'].includes(ext)) {
+                            // Audio embed
+                            parts.push({
+                                type: 'html',
+                                value: `<audio controls style="width: 100%; margin: 1rem 0;">
+  <source src="${finalUrl}" type="audio/${ext.slice(1)}">
+  Your browser does not support the audio tag.
+</audio>`
+                            })
+                        } else {
+                            // Image embed (default)
+                            const altText = param || fileName.replace(/\.[^.]+$/, '')
+
+                            // Check if param is a number (width)
+                            const width = param && /^\d+$/.test(param) ? param : null
+
+                            if (width) {
+                                // Image with custom width
+                                parts.push({
+                                    type: 'html',
+                                    value: `<img src="${finalUrl}" alt="${altText}" style="max-width: ${width}px; height: auto;" />`
+                                })
+                            } else {
+                                // Standard image node
+                                parts.push({
+                                    type: 'image',
+                                    url: finalUrl,
+                                    alt: altText,
+                                })
+                            }
+                        }
                     } else {
-                        finalUrl = `./assets/${imageName}`
-                    }
+                        // Handle wikilinks: [[page-name]] or [[page-name|display text]]
+                        const displayText = param || fileName
 
-                    parts.push({
-                        type: 'image',
-                        url: finalUrl,
-                        alt: imageName.replace(/\.[^.]+$/, ''),
-                    })
+                        // Convert to URL-friendly slug
+                        const slug = fileName.toLowerCase().replace(/\s+/g, '-')
+
+                        parts.push({
+                            type: 'link',
+                            url: `/blog/${slug}`,
+                            children: [
+                                {
+                                    type: 'text',
+                                    value: displayText
+                                }
+                            ]
+                        })
+                    }
 
                     lastIndex = match.index + match[0].length
                 }
