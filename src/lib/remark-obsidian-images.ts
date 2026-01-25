@@ -68,7 +68,7 @@ const remarkObsidianImages: Plugin<[], Root> = () => {
 
                         // Handle different file types
                         if (ext === '.pdf') {
-                            // PDF embed: create an iframe or link
+                            // PDF embed: use relative path to PDF file
                             parts.push({
                                 type: 'html',
                                 value: `<div class="pdf-embed" style="margin: 1.5rem 0;">
