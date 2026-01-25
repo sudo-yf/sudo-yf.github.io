@@ -2,7 +2,14 @@
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
 import Layout from '@/layouts/Layout.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
 import { Content } from '../content/work.mdx'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
+projects.sort((a, b) => {
+  return (a.data.order ?? 99) - (b.data.order ?? 99)
+})
 ---
 
 <Layout>
@@ -17,5 +24,8 @@ import { Content } from '../content/work.mdx'
     <article class="prose">
       <Content />
     </article>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
   </section>
 </Layout>
