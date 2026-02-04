@@ -1,0 +1,73 @@
+---
+title: 寒假|1.27
+description: 隧道燃烧实验及代码调试、lehome环境配置
+date: 2026-01-27
+tags:
+  - study
+authors:
+  - yifan
+---
+今天下午主要是在实验室熟悉隧道烟雾的实验数据收集
+以及视频转图像还有图像差分的一些python文件
+
+lehome规则已发布https://lehome-challenge.com/simulation-challenge
+按照对应github链接配置下环境
+
+==uv uv.lock pyproject.toml==能代替大部分conda pip与requirements的任务了，并且在某些地方要做的更加好。
+# 基本环境
+### 1. Clone the Repository
+```shell
+git clone https://github.com/lehome-official/lehome-challenge.git
+cd lehome-challenge
+```
+
+### 2. Install Dependencies with uv
+```shell
+uv sync
+```
+This will create a virtual environment and install all required dependencies.
+这一步好久好久 要留有足够的硬盘空间
+
+### 3. Clone and Configure IsaacLab
+```shell
+cd third_party
+git clone https://github.com/lehome-official/IsaacLab.git
+cd ..
+```
+第三方的一般都在third_party，意为第三方插件
+### 4. Install IsaacLab
+Activate the virtual environment and install IsaacLab:
+```shell
+source .venv/bin/activate
+./third_party/IsaacLab/isaaclab.sh -i none
+```
+
+### 5. Install LeHome Package
+Finally, install the LeHome package in development mode:
+```shell
+uv pip install -e ./source/lehome
+```
+
+# 资源和数据集
+
+Download the required simulation assets (scenes, objects, robots) from HuggingFace:  
+```shell
+# This creates the Assets/ directory with all required simulation resources
+hf download lehome/asset_challenge --repo-type dataset --local-dir Assets
+```
+
+#### Download Example Dataset  
+We provide demonstrations for four types of garments. Download from HuggingFace:  
+```shell
+hf download lehome/dataset_challenge_merged --repo-type dataset --local-dir Datasets/example
+```
+
+If you need depth information or individual data for each garment. Download from HuggingFace:  
+```shell
+hf download lehome/dataset_challenge --repo-type dataset --local-dir Datasets/example
+```
+
+
+到数据采集这里 前面两章讲的是怎么使用主控臂采集 后面讲的是怎么使用键盘采集 给了一些cli命令还有对应的参数 但是我感觉键盘采集不是很现实
+
+后面再看一下ebcloud要怎么部署吧 然后端口转发什么什么的
