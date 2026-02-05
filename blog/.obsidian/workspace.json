@@ -197,7 +197,6 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "publish:发布更改": false,
-      "zk-prefixer:创建时间戳笔记": false,
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
