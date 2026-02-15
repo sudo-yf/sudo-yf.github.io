@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"541a2a1ad9219d24","type":"text","text":"参数记忆：内化在模型权重中的记忆，本质上是全息有损压缩 ","x":220,"y":-120,"width":250,"height":90},
+		{"id":"3137aa2d4fea7cdc","type":"text","text":"上下文记忆","x":220,"y":-10,"width":250,"height":60},
+		{"id":"2b9c6be80fce225d","type":"text","text":"外部记忆：给模型增加的外部存储层","x":220,"y":65,"width":250,"height":60},
+		{"id":"aac3783efd4c4e5e","type":"text","text":"参数记忆（预训练知识与关联结构）\n上下文记忆（短期对话动态引用）\n外部记忆（数据库持久存储）","x":-200,"y":-25,"width":305,"height":90},
+		{"id":"c86e978a92b365d4","type":"file","file":"assets/Pasted image 20260210165116.png","x":-47,"y":-303,"width":250,"height":127},
+		{"id":"b81426e80b8b62b8","type":"file","file":"assets/Pasted image 20260210164937.png","x":240,"y":-303,"width":206,"height":127},
+		{"id":"8bd46ebbc6bc4c4d","type":"file","file":"assets/Pasted image 20260210165315.png","x":500,"y":-77,"width":400,"height":194},
+		{"id":"c834d158aa82823c","type":"file","file":"assets/Pasted image 20260210165606.png","x":-280,"y":160,"width":400,"height":229},
+		{"id":"b902c99824e918a8","type":"file","file":"assets/Pasted image 20260210165904.png","x":145,"y":160,"width":400,"height":183},
+		{"id":"bce9b9b83601a8c2","type":"file","file":"assets/Pasted image 20260210165820.png","x":580,"y":160,"width":400,"height":190}
+	],
+	"edges":[
+		{"id":"31cd474cc018b51e","fromNode":"aac3783efd4c4e5e","fromSide":"right","toNode":"541a2a1ad9219d24","toSide":"left"},
+		{"id":"68db9e15e39f93c7","fromNode":"aac3783efd4c4e5e","fromSide":"right","toNode":"3137aa2d4fea7cdc","toSide":"left"},
+		{"id":"a20579bfe143c7c3","fromNode":"aac3783efd4c4e5e","fromSide":"right","toNode":"2b9c6be80fce225d","toSide":"left"}
+	]
+}
